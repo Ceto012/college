@@ -9931,7 +9931,7 @@
                 return r = n.sent(), [4, this.pdfmake];
               case 2:
                 return a = n.sent(), o = [30, 30, 30, 30], s = {
-                  pageSize: e.pageSize || "A4",
+                  Paginasize: e.Paginasize || "A4",
                   pageOrientation: e.pageOrientation || "portrait",
                   pageMargins: e.pageMargins || o,
                   defaultStyle: {
@@ -9953,7 +9953,7 @@
                 }), u += 50), "pdfdata" != t && s.content.push({
                   image: r,
                   alignment: e.align || "left",
-                  fit: this.getPageSizeFit(s.pageSize, s.pageMargins, u)
+                  fit: this.getPaginasizeFit(s.Paginasize, s.pageMargins, u)
                 }), "pdfdata" == t || e.addData ? (c = (h = s.content).push, p = {}, [4, this.getPDFData("pdf", e)]) : [3, 4];
               case 3:
                 c.apply(h, [(p.table = n.sent(), p.fontSize = e.fontSize || 14, p)]), n.label = 4;
@@ -10022,7 +10022,7 @@
             r = o.indexOf(e);
           return i > r ? 1 : i < r ? -1 : 0
         }), a
-      }, e.prototype.getPageSizeFit = function(t, e, i) {
+      }, e.prototype.getPaginasizeFit = function(t, e, i) {
         void 0 === i && (i = 0);
         var r = [0, 0, 0, 0];
         "number" == typeof e ? r = [e, e, e, e] : 2 == e.length ? r = [e[0], e[1], e[0], e[1]] : 4 == e.length && (r = e);

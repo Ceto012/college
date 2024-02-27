@@ -793,7 +793,7 @@
           searchable: !0,
           paging: !0,
           perPage: 10,
-          perPageSelect: [5, 10, 15, 20, 25],
+          perPaginaselect: [5, 10, 15, 20, 25],
           nextPrev: !0,
           firstLast: !1,
           prevText: "&lsaquo;",
@@ -880,13 +880,13 @@
               html: this.head.innerHTML
             }), this.table.appendChild(this.foot)) : this.foot && this.table.removeChild(this.table.tFoot), this.wrapper = a("div", {
               class: "dataTable-wrapper dataTable-loading"
-            }), s += "<div class='dataTable-top'>", s += e.layout.top, s += "</div>", e.scrollY.length ? s += `<div class='dataTable-container' style='height: ${e.scrollY}; overflow-Y: auto;'></div>` : s += "<div class='dataTable-container'></div>", s += "<div class='dataTable-bottom'>", s += e.layout.bottom, s += "</div>", s = s.replace("{info}", e.paging ? "<div class='dataTable-info'></div>" : ""), e.paging && e.perPageSelect) {
+            }), s += "<div class='dataTable-top'>", s += e.layout.top, s += "</div>", e.scrollY.length ? s += `<div class='dataTable-container' style='height: ${e.scrollY}; overflow-Y: auto;'></div>` : s += "<div class='dataTable-container'></div>", s += "<div class='dataTable-bottom'>", s += e.layout.bottom, s += "</div>", s = s.replace("{info}", e.paging ? "<div class='dataTable-info'></div>" : ""), e.paging && e.perPaginaselect) {
             let t = "<div class='dataTable-dropdown'><label>";
             t += e.labels.perPage, t += "</label></div>";
             const i = a("select", {
               class: "dataTable-selector"
             });
-            e.perPageSelect.forEach((t => {
+            e.perPaginaselect.forEach((t => {
               const s = t === e.perPage,
                 a = new Option(t, t, s, s);
               i.add(a)
@@ -906,27 +906,27 @@
           i.appendChild(n), s = s.replace(/\{pager\}/g, i.outerHTML), this.wrapper.innerHTML = s, this.container = this.wrapper.querySelector(".dataTable-container"), this.pagers = this.wrapper.querySelectorAll(".dataTable-pagination-list"), this.label = this.wrapper.querySelector(".dataTable-info"), this.table.parentNode.replaceChild(this.wrapper, this.table), this.container.appendChild(this.table), this.rect = this.table.getBoundingClientRect(), this.data = Array.from(this.body.rows), this.activeRows = this.data.slice(), this.activeHeadings = this.headings.slice(), this.update(), this.setColumns(), this.fixHeight(), this.fixColumns(), e.header || this.wrapper.classList.add("no-header"), e.footer || this.wrapper.classList.add("no-footer"), e.sortable && this.wrapper.classList.add("sortable"), e.searchable && this.wrapper.classList.add("searchable"), e.fixedHeight && this.wrapper.classList.add("fixed-height"), e.fixedColumns && this.wrapper.classList.add("fixed-columns"), this.bindEvents()
         }
         renderPage() {
-          if (this.hasHeadings && (n(this.header), this.activeHeadings.forEach((t => this.header.appendChild(t)))), this.hasRows && this.totalPages) {
-            this.currentPage > this.totalPages && (this.currentPage = 1);
+          if (this.hasHeadings && (n(this.header), this.activeHeadings.forEach((t => this.header.appendChild(t)))), this.hasRows && this.totalPaginas) {
+            this.currentPage > this.totalPaginas && (this.currentPage = 1);
             const t = this.currentPage - 1,
               e = document.createDocumentFragment();
-            this.pages[t].forEach((t => e.appendChild(this.rows().render(t)))), this.clear(e), this.onFirstPage = 1 === this.currentPage, this.onLastPage = this.currentPage === this.lastPage
+            this.Paginas[t].forEach((t => e.appendChild(this.rows().render(t)))), this.clear(e), this.onFirstPage = 1 === this.currentPage, this.onLastPage = this.currentPage === this.lastPage
           } else this.setMessage(this.options.labels.noRows);
           let t, e = 0,
             s = 0,
             i = 0;
-          if (this.totalPages && (e = this.currentPage - 1, s = e * this.options.perPage, i = s + this.pages[e].length, s += 1, t = this.searching ? this.searchData.length : this.data.length), this.label && this.options.labels.info.length) {
-            const e = this.options.labels.info.replace("{start}", s).replace("{end}", i).replace("{page}", this.currentPage).replace("{pages}", this.totalPages).replace("{rows}", t);
+          if (this.totalPaginas && (e = this.currentPage - 1, s = e * this.options.perPage, i = s + this.Paginas[e].length, s += 1, t = this.searching ? this.searchData.length : this.data.length), this.label && this.options.labels.info.length) {
+            const e = this.options.labels.info.replace("{start}", s).replace("{end}", i).replace("{page}", this.currentPage).replace("{Paginas}", this.totalPaginas).replace("{rows}", t);
             this.label.innerHTML = t ? e : ""
           }
           1 == this.currentPage && this.fixHeight()
         }
         renderPager() {
-          if (n(this.pagers), this.totalPages > 1) {
+          if (n(this.pagers), this.totalPaginas > 1) {
             const t = "pager",
               e = document.createDocumentFragment(),
               s = this.onFirstPage ? 1 : this.currentPage - 1,
-              i = this.onLastPage ? this.totalPages : this.currentPage + 1;
+              i = this.onLastPage ? this.totalPaginas : this.currentPage + 1;
             this.options.firstLast && e.appendChild(r(t, 1, this.options.firstText)), this.options.nextPrev && e.appendChild(r(t, s, this.options.prevText));
             let n = this.links;
             this.options.truncatePager && (n = ((t, e, s, i, n) => {
@@ -956,9 +956,9 @@
                 }
                 c.push(e), r = e
               })), c
-            })(this.links, this.currentPage, this.pages.length, this.options.pagerDelta, this.options.ellipsisText)), this.links[this.currentPage - 1].classList.add("active"), n.forEach((t => {
+            })(this.links, this.currentPage, this.Paginas.length, this.options.pagerDelta, this.options.ellipsisText)), this.links[this.currentPage - 1].classList.add("active"), n.forEach((t => {
               t.classList.remove("active"), e.appendChild(t)
-            })), this.links[this.currentPage - 1].classList.add("active"), this.options.nextPrev && e.appendChild(r(t, i, this.options.nextText)), this.options.firstLast && e.appendChild(r(t, this.totalPages, this.options.lastText)), this.pagers.forEach((t => {
+            })), this.links[this.currentPage - 1].classList.add("active"), this.options.nextPrev && e.appendChild(r(t, i, this.options.nextText)), this.options.firstLast && e.appendChild(r(t, this.totalPaginas, this.options.lastText)), this.pagers.forEach((t => {
               t.appendChild(e.cloneNode(!0))
             }))
           }
@@ -977,7 +977,7 @@
         }
         bindEvents() {
           const t = this.options;
-          if (t.perPageSelect) {
+          if (t.perPaginaselect) {
             const e = this.wrapper.querySelector(".dataTable-selector");
             e && e.addEventListener("change", (() => {
               t.perPage = parseInt(e.value, 10), this.update(), this.fixHeight(), this.emit("datatable.perpage", t.perPage)
@@ -1021,7 +1021,7 @@
         }
         update() {
           this.wrapper.classList.remove("dataTable-empty"), this.paginate(this), this.render("page"), this.links = [];
-          let t = this.pages.length;
+          let t = this.Paginas.length;
           for (; t--;) {
             const e = t + 1;
             this.links[t] = r(0 === t ? "active" : "", e, e)
@@ -1031,7 +1031,7 @@
         paginate() {
           const t = this.options.perPage;
           let e = this.activeRows;
-          return this.searching && (e = [], this.searchData.forEach((t => e.push(this.activeRows[t])))), this.options.paging ? this.pages = e.map(((s, i) => i % t == 0 ? e.slice(i, i + t) : null)).filter((t => t)) : this.pages = [e], this.totalPages = this.lastPage = this.pages.length, this.totalPages
+          return this.searching && (e = [], this.searchData.forEach((t => e.push(this.activeRows[t])))), this.options.paging ? this.Paginas = e.map(((s, i) => i % t == 0 ? e.slice(i, i + t) : null)).filter((t => t)) : this.Paginas = [e], this.totalPaginas = this.lastPage = this.Paginas.length, this.totalPaginas
         }
         fixColumns() {
           if ((this.options.scrollY.length || this.options.fixedColumns) && this.activeHeadings && this.activeHeadings.length) {
@@ -1099,7 +1099,7 @@
           })), this.wrapper.classList.add("search-results"), this.searchData.length ? this.update() : (this.wrapper.classList.remove("search-results"), this.setMessage(this.options.labels.noRows)), void this.emit("datatable.search", t, this.searchData)) : (this.searching = !1, this.update(), this.emit("datatable.search", t, this.searchData), this.wrapper.classList.remove("search-results"), !1))
         }
         page(t) {
-          return t != this.currentPage && (isNaN(t) || (this.currentPage = parseInt(t, 10)), !(t > this.pages.length || t < 0) && (this.render("page"), this.render("pager"), void this.emit("datatable.page", t)))
+          return t != this.currentPage && (isNaN(t) || (this.currentPage = parseInt(t, 10)), !(t > this.Paginas.length || t < 0) && (this.render("page"), this.render("pager"), void this.emit("datatable.page", t)))
         }
         sortColumn(t, e) {
           this.columns().sort(t, e)
@@ -1155,8 +1155,8 @@
             if ("txt" !== l.type && "csv" !== l.type || (s[0] = this.header), l.selection)
               if (isNaN(l.selection)) {
                 if (Array.isArray(l.selection))
-                  for (n = 0; n < l.selection.length; n++) s = s.concat(this.pages[l.selection[n] - 1])
-              } else s = s.concat(this.pages[l.selection - 1]);
+                  for (n = 0; n < l.selection.length; n++) s = s.concat(this.Paginas[l.selection[n] - 1])
+              } else s = s.concat(this.Paginas[l.selection - 1]);
             else s = s.concat(this.activeRows);
             if (s.length) {
               if ("txt" === l.type || "csv" === l.type) {
@@ -1253,7 +1253,7 @@
         }
         setMessage(t) {
           let e = 1;
-          this.hasRows ? e = this.data[0].cells.length : this.activeHeadings.length && (e = this.activeHeadings.length), this.wrapper.classList.add("dataTable-empty"), this.label && (this.label.innerHTML = ""), this.totalPages = 0, this.render("pager"), this.clear(a("tr", {
+          this.hasRows ? e = this.data[0].cells.length : this.activeHeadings.length && (e = this.activeHeadings.length), this.wrapper.classList.add("dataTable-empty"), this.label && (this.label.innerHTML = ""), this.totalPaginas = 0, this.render("pager"), this.clear(a("tr", {
             html: `<td class="dataTables-empty" colspan="${e}">${t}</td>`
           }))
         }
