@@ -21,7 +21,7 @@ You're getting a multi-purpose tool for building complex apps.
 
 Soft UI Dashboard PRO Laravel at a glance:
 * 70 handcrafted UI components. From buttons and inputs to navbars and cards, everything is designed to create visually cohesive interfaces.  
-* 7 example pages to get you started
+* 7 example Paginas to get you started
 * fully-functional authentication system, register and user profile editing features built with Laravel
 * Documentation for each component so you can get started fast
 
@@ -29,8 +29,8 @@ Soft UI Dashboard PRO Laravel at a glance:
 Whether you're working on a side project or delivering to a client, we've got you covered. Soft UI Dashboard Laravel is released under MIT license, so you can use it both for personal and commercial projects for free. All you need to do is start coding. 
 
 
-## Detailed documentation and example pages
-We also included detailed documentation for every component and feature so you can follow along. The pre-built example pages give you a quick glimpse of what Soft UI Dashboard Laravel has to offer so you can get started in no time. 
+## Detailed documentation and example Paginas
+We also included detailed documentation for every component and feature so you can follow along. The pre-built example Paginas give you a quick glimpse of what Soft UI Dashboard Laravel has to offer so you can get started in no time. 
 
 If you want to get more features, go PRO with [Soft UI Dashboard PRO Laravel](https://www.creative-tim.com/product/soft-ui-dashboard-pro-laravel).
 
@@ -46,7 +46,7 @@ If you want to get more features, go PRO with [Soft UI Dashboard PRO Laravel](ht
 * [Register](#register)
 * [Forgot Password](#forgot-password)
 * [Reset Password](#reset-password)
-* [User Profile](#user-profile)
+* [User Profile](#anexo)
 * [Dashboard](#dashboard)
 * [File Structure](#file-structure)
 * [Browser Support](#browser-support)
@@ -80,10 +80,10 @@ And Laravel: https://laravel.com/docs/10.x
 ## Usage
 Register a user or login with default user **admin@softui.com** and password **secret** from your database and start testing (make sure to run the migrations and seeders for these credentials to be available).
 
-Besides the dashboard, the auth pages, the billing and table pages, there is also has an edit profile page. All the necessary files are installed out of the box and all the needed routes are added to `routes/web.php`. Keep in mind that all of the features can be viewed once you login using the credentials provided or by registering your own user. 
+Besides the dashboard, the auth Paginas, the billing and table Paginas, there is also has an edit profile page. All the necessary files are installed out of the box and all the needed routes are added to `routes/web.php`. Keep in mind that all of the features can be viewed once you login using the credentials provided or by registering your own user. 
 
 ## Versions
-[<img src="https://github.com/creativetimofficial/public-assets/blob/master/logos/html-logo.jpg?raw=true" width="60" height="60" />](https://demos.creative-tim.com/argon-dashboard-pro/pages/dashboards/dashboard.html?ref=sudl-readme)
+[<img src="https://github.com/creativetimofficial/public-assets/blob/master/logos/html-logo.jpg?raw=true" width="60" height="60" />](https://demos.creative-tim.com/argon-dashboard-pro/Paginas/dashboards/dashboard.html?ref=sudl-readme)
 [<img src="https://github.com/creativetimofficial/public-assets/blob/master/logos/laravel_logo.png?raw=true" width="60" height="60" />](https://argon-dashboard-pro-laravel.creative-tim.com/?ref=sudl-readme)
 
 | HTML | Laravel |
@@ -97,7 +97,7 @@ Besides the dashboard, the auth pages, the billing and table pages, there is als
 
 | Forgot Password Page | Reset Password Page | Profile Page  |
 | --- | --- | ---  |
-| [<img src="https://github.com/creativetimofficial/public-assets/blob/master/soft-ui-design-system-laravel/Forgot-password.png" width="320" />](https://soft-ui-dashboard-laravel.creative-tim.com/login/forgot-password)  | [<img src="https://github.com/creativetimofficial/public-assets/blob/master/soft-ui-design-system-laravel/Login.png" width="312" />](https://soft-ui-dashboard-laravel.creative-tim.com/) | [<img src="https://github.com/creativetimofficial/public-assets/blob/master/soft-ui-design-system-laravel/Profile.png" width="330" />](https://soft-ui-dashboard-laravel.creative-tim.com/laravel-user-profile)
+| [<img src="https://github.com/creativetimofficial/public-assets/blob/master/soft-ui-design-system-laravel/Forgot-password.png" width="320" />](https://soft-ui-dashboard-laravel.creative-tim.com/login/forgot-password)  | [<img src="https://github.com/creativetimofficial/public-assets/blob/master/soft-ui-design-system-laravel/Login.png" width="312" />](https://soft-ui-dashboard-laravel.creative-tim.com/) | [<img src="https://github.com/creativetimofficial/public-assets/blob/master/soft-ui-design-system-laravel/Profile.png" width="330" />](https://soft-ui-dashboard-laravel.creative-tim.com/laravel-anexo)
 [View More](https://soft-ui-dashboard-laravel.creative-tim.com/dashboard)
 
 ## Documentation
@@ -129,7 +129,7 @@ The `App\Http\Controllers\SessionController` handles the logging in of an existi
 ```
 
 ### Register
-You can register as a user by filling in the name, email, role and password for your account. For your role you can choose between the Admin, Creator and Member. It is important to know that an admin user has access to all the pages and actions, can delete, add and edit another users, other roles, items, tags or categories; a creator user has acces to category, tag and item managemen, but can not add, edit or delete other users; a member user has access to the item management but can not take any action. You can do this by accessing the sign up page from the "**Sign Up**" button in the top navbar or by clicking the "**Sign Up**" button from the bottom of the log in form. Another simple way is adding **/register** in the url.
+You can register as a user by filling in the name, email, role and password for your account. For your role you can choose between the Admin, Creator and Member. It is important to know that an admin user has access to all the Paginas and actions, can delete, add and edit another users, other roles, items, tags or categories; a creator user has acces to category, tag and item managemen, but can not add, edit or delete other users; a member user has access to the item management but can not take any action. You can do this by accessing the sign up page from the "**Sign Up**" button in the top navbar or by clicking the "**Sign Up**" button from the bottom of the log in form. Another simple way is adding **/register** in the url.
 
 The `App\Http\Controllers\RegisterController` handles the registration of a new user.
 
@@ -206,7 +206,7 @@ The `App\Http\Controllers\ChangePasswordController` helps the user reset the pas
 ```
 
 ### My Profile
-The profile can be accessed by a logged in user by clicking "**User Profile**" from the sidebar or adding **/user-profile** in the url. The user can add information like birthday, gender, phone number, location, language  or skills.
+The profile can be accessed by a logged in user by clicking "**User Profile**" from the sidebar or adding **/anexo** in the url. The user can add information like birthday, gender, phone number, location, language  or skills.
 
 The `App\Http\Controllers\InfoUserController` handles the user's profile information.
 
@@ -232,7 +232,7 @@ The `App\Http\Controllers\InfoUserController` handles the user's profile informa
             'about_me'    => $attributes["about_me"],
         ]);
 
-        return redirect('/user-profile');
+        return redirect('/anexo');
     }
 ```
 
@@ -353,8 +353,8 @@ database
 |       |       fixed-plugins.blade.php
 |       |      
 |       +---laravel-example
-|       |        user-management.blade.php
-|       |        user-profile.blade.php
+|       |        placa.blade.php
+|       |        anexo.blade.php
 |       |      
 |       +---layouts
 |       |   |   

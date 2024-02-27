@@ -41,9 +41,9 @@ Route::group(['middleware' => 'auth'], function () {
 		return view('rtl');
 	})->name('rtl');
 
-	Route::get('user-management', function () {
-		return view('laravel-examples/user-management');
-	})->name('user-management');
+	Route::get('placa', function () {
+		return view('placas/placa');
+	})->name('placa');
 
 	Route::get('tables', function () {
 		return view('tables');
@@ -62,8 +62,8 @@ Route::group(['middleware' => 'auth'], function () {
 	})->name('sign-up');
 
     Route::get('/logout', [SessionsController::class, 'destroy']);
-	Route::get('/user-profile', [InfoUserController::class, 'create']);
-	Route::post('/user-profile', [InfoUserController::class, 'store']);
+	Route::get('/anexo', [InfoUserController::class, 'create']);
+	Route::post('/anexo', [InfoUserController::class, 'store']);
     Route::get('/login', function () {
 		return view('dashboard');
 	})->name('sign-up');
