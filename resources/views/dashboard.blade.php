@@ -6,7 +6,7 @@
             <div class="col-md-12 col-lg-12">
                 <div class="row">
                     <div class="col-lg-12">
-                        <div class="card">
+                        <div class="card min-vh-85">
                             <div class="flex-wrap card-header d-flex justify-content-between align-items-center"
                                 style="background-color: var(--bs-primary)">
                                 <div class="col-10 header-title head-zone" style="color: black">
@@ -25,6 +25,14 @@
                                 </div>
                             </div>
                             <div class="card-body">
+                                <div class="row" style="background-color:aquamarine; min-height: 75vh">
+                                    <div class="col-lg-5" style="background-color:red; height: 75vh">
+
+                                    </div>
+                                    <div class="col-lg-7" style="background-color:blue; height: 40vh">
+
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

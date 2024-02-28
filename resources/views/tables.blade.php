@@ -15,34 +15,98 @@
                         <form action="/user-profile" method="POST" role="form text-left">
                             @csrf
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <label for="tipo-placa" class="form-control-label">Tipo de Busqueda</label>
+                                        <select class="form-select" id="tipo-placa">
+                                            <option value="placa">Placa</option>
+                                            <option value="codigo">Código</option>
+                                            <option value="dni">DNI</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="user-name" class="form-control-label">Fecha Inicio</label>
                                         <div class="@error('user.name')border border-danger rounded-3 @enderror">
-                                            <input class="form-control" value="" type="date"  id="user-name" name="name">
+                                            <input class="form-control" value="" type="date" id="user-name" name="name">
                                             @error('name')
                                             <p class="text-danger text-xs mt-2">{{ $message }}</p>
                                             @enderror
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <div class="form-group">
-                                        <label for="user-email" class="form-control-label">Fecha Fin </label>
+                                        <label for="user-email" class="form-control-label">Fecha Fin</label>
                                         <div class="@error('email')border border-danger rounded-3 @enderror">
-                                            <input class="form-control"  type="date"  id="user-email" name="email">
+                                            <input class="form-control" type="date" id="user-email" name="email">
                                             @error('email')
                                             <p class="text-danger text-xs mt-2">{{ $message }}</p>
                                             @enderror
                                         </div>
                                     </div>
                                 </div>
-                                
+                                <div class="col-md-4"  id="placa-input">
+                                    <div class="form-group">
+                                        <label for="user-email" class="form-control-label">Placa</label>
+                                        <div class="@error('email')border border-danger rounded-3 @enderror">
+                                            <input class="form-control" maxlength="6" type="text" id="user-email" name="placa">
+                                            @error('email')
+                                            <p class="text-danger text-xs mt-2">{{ $message }}</p>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4" id="codigo-input" style="display: none;">
+                                    <div  class="form-group" >
+                                        <label for="codigo" class="form-control-label">Código</label>
+                                        <div class="@error('email')border border-danger rounded-3 @enderror">
+                                            <input class="form-control" type="text" id="codigo" name="codigo">
+                                            @error('email')
+                                            <p class="text-danger text-xs mt-2">{{ $message }}</p>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4" id="dni-input" style="display: none;"> 
+                                    <div  class="form-group" >
+                                        <label for="dni" class="form-control-label">DNI</label>
+                                        <div class="@error('email')border border-danger rounded-3 @enderror">
+                                            <input class="form-control" type="text" id="dni" name="dni">
+                                            @error('email')
+                                            <p class="text-danger text-xs mt-2">{{ $message }}</p>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="d-flex justify-content-end">
                                 <button type="submit" class="btn bg-gradient-dark btn-md mt-4 mb-4">{{ 'Generar Reporte' }}</button>
                             </div>
                         </form>
+
+                        <script>
+                            document.getElementById('tipo-placa').addEventListener('change', function() {
+                                var selectedValue = this.value;
+                                if (selectedValue === 'placa') {
+                                    document.getElementById('placa-input').style.display = 'block';
+                                    document.getElementById('codigo-input').style.display = 'none';
+                                    document.getElementById('dni-input').style.display = 'none';
+                                } else if (selectedValue === 'codigo') {
+                                    document.getElementById('placa-input').style.display = 'none';
+                                    document.getElementById('codigo-input').style.display = 'block';
+                                    document.getElementById('dni-input').style.display = 'none';
+                                } else if (selectedValue === 'dni') {
+                                    document.getElementById('placa-input').style.display = 'none';
+                                    document.getElementById('codigo-input').style.display = 'none';
+                                    document.getElementById('dni-input').style.display = 'block';
+                                }
+                            });
+                        </script>
+
 
                     </div>
                 </div>
@@ -241,7 +305,6 @@
                 </div>
             </div>
         </div>
-
     </div>
 </main>
 
