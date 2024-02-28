@@ -22,7 +22,7 @@
                                 </button>
                             </div>
                         </div>
-                        <div class="card-body">
+                        <div class="card-body" id="card-body-dashboard">
                             <div class="row">
                                 <div class="col-lg-5 mb-4">
                                     <div class="card-header">
