@@ -88,6 +88,7 @@
 
 
 .toasted {
+	width: 100%;
 	background: #ccc;
 	display: flex;
 	justify-content: space-between;

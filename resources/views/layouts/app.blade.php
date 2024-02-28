@@ -49,6 +49,8 @@
       <p class="m-0">{{ session('success')}}</p>
     </div>
   @endif --}}
+      <!--   Jquery 3.17   -->
+  <script src="../assets/js/plugins/jquery.min.js"></script>
     <!--   Core JS Files   -->
   <script src="../assets/js/core/popper.min.js"></script>
   <script src="../assets/js/core/bootstrap.min.js"></script>
@@ -74,6 +76,11 @@
   <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example Paginas etc -->
   <script src="../assets/js/soft-ui-dashboard.min.js?v=1.0.3"></script>
   <script src="../assets/js/college.js"></script>
+  
+
+  <script src="../assets/js/sistema/dashboard.js"></script>
+  <script src="../assets/js/sistema/placa.js"></script>
+
 </body>
 
 </html>
