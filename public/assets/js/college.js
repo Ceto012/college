@@ -96,3 +96,43 @@ function toggleFullscreen() {
         icon.innerHTML = '<path d="M0 180V56c0-13.3 10.7-24 24-24h124c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12H64v84c0 6.6-5.4 12-12 12H12c-6.6 0-12-5.4-12-12zM288 44v40c0 6.6 5.4 12 12 12h84v84c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12V56c0-13.3-10.7-24-24-24H300c-6.6 0-12 5.4-12 12zm148 276h-40c-6.6 0-12 5.4-12 12v84h-84c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h124c13.3 0 24-10.7 24-24V332c0-6.6-5.4-12-12-12zM160 468v-40c0-6.6-5.4-12-12-12H64v-84c0-6.6-5.4-12-12-12H12c-6.6 0-12 5.4-12 12v124c0 13.3 10.7 24 24 24h124c6.6 0 12-5.4 12-12z"/>';
     }
 }
+
+// Función para manejar el cambio de tamaño del card-body
+function handleResize(cardBody) {
+    if (document.fullscreenElement) {
+        cardBody.style.height = '89vh';
+    } else {
+        cardBody.style.height = '75vh';
+    }
+}
+
+// Obtener el card-body específico por su ID
+var specificCardBody = document.getElementById('card-body-dashboard');
+
+// Agregar un event listener para detectar cambios de tamaño de pantalla
+document.addEventListener('fullscreenchange', function() {
+    handleResize(specificCardBody);
+});
+
+// Inicializar la altura del card-body
+handleResize(specificCardBody);
+
+
+function toggleFullscreen() {
+    var elem = document.documentElement;
+    if (!document.fullscreenElement) {
+        elem.requestFullscreen().then(() => {
+            document.getElementById('fullscreen-img').style.height = ''; // Ajustar al tamaño deseado en pantalla completa
+            document.getElementById('fullscreen-img').style.marginTop = '5rem'; // Ajustar el margin-top
+        }).catch((err) => {
+            console.log(`Error al intentar activar el modo de pantalla completa: ${err.message}`);
+        });
+    } else {
+        document.exitFullscreen().then(() => {
+            document.getElementById('fullscreen-img').style.height = ''; // Restaurar el tamaño original
+            document.getElementById('fullscreen-img').style.marginTop = ''; // Restaurar el margin-top original
+        }).catch((err) => {
+            console.log(`Error al intentar salir del modo de pantalla completa: ${err.message}`);
+        });
+    }
+}

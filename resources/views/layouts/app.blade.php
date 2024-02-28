@@ -33,7 +33,7 @@
    <link href="../assets/css/estilos.css" rel="stylesheet" />
 </head>
 
-<body class="g-sidenav-show  bg-gray-100 {{ (\Request::is('rtl') ? 'rtl' : (Request::is('virtual-reality') ? 'virtual-reality' : '')) }} ">
+<body style="overflow-y: hidden" class="g-sidenav-show  bg-gray-100 {{ (\Request::is('rtl') ? 'rtl' : (Request::is('virtual-reality') ? 'virtual-reality' : '')) }} ">
   @auth
     @yield('auth')
   @endauth
