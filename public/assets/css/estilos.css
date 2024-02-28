@@ -1,0 +1,268 @@
+:root {
+	--exito: #3ab65c;
+	--error: #ff0000;
+	--info: #fcdb1f;
+	--warning: #fc7b03;
+	--exito-hover: #2d8a46;
+	--error-hover: #962a31;
+	--info-hover: #147fa0;
+	--warning-hover: #9b7512;
+}
+
+
+.contenedor {
+	width: 90%;
+	max-width: 1000px;
+	margin: 80px auto;
+}
+
+.hero .titulo {
+	font-weight: 800;
+	font-size: 100px;
+	margin-bottom: 40px;
+}
+
+.hero .contenedor-botones {
+	display: flex;
+	gap: 20px;
+}
+
+.btn2 {
+	padding: 10px 20px;
+	font-size: 20px;
+	background: #000;
+	border: none;
+	cursor: pointer;
+	color: #fff;
+	border-radius: 5px;
+	transition: 0.3s ease all;
+}
+
+.btn.exito {
+	background: var(--exito);
+}
+.btn.error {
+	background: var(--error);
+}
+.btn.info {
+	background: var(--info);
+}
+.btn.warning {
+	background: var(--warning);
+}
+
+/* Hover */
+.btn.exito:hover {
+	background: var(--exito-hover);
+}
+.btn.error:hover {
+	background: var(--error-hover);
+}
+.btn.info:hover {
+	background: var(--info-hover);
+}
+.btn.warning:hover {
+	background: var(--warning-hover);
+}
+
+/* Toast 
+.contenedor-toast {
+	position: fixed;
+	right: 40px;
+	bottom: 40px;
+	width: 100%;
+	max-width: 400px;
+	display: flex;
+	flex-direction: column-reverse;
+	gap: 20px;
+}*/
+
+
+
+.contenedor-toast {
+	margin: 20px;
+    display: grid; /* Cambiar de flex a grid */
+    grid-template-columns: repeat(5, 1fr); /* 5 columnas con tamaño igual */
+    gap: 20px;
+}
+
+
+.toasted {
+	background: #ccc;
+	display: flex;
+	justify-content: space-between;
+	border-radius: 10px;
+	overflow: hidden;
+	animation-name: apertura;
+	animation-duration: 200ms;
+	animation-timing-function: ease-out;
+	position: relative;
+}
+
+.toasted.exito {
+	background: var(--exito);
+}
+.toasted.error {
+	background: var(--error);
+	animation: colorChangeLong 2s infinite alternate; 
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s; 
+}
+.toasted.info {
+	background: var(--info);
+	animation: colorChangeShort  2s infinite alternate; 
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+.toasted.warning {
+	background: var(--warning);
+	animation: colorChangeDouble 2s infinite alternate; 
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s; 
+}
+
+.toasted .contenido {
+	display: grid;
+	grid-template-columns: 30px auto;
+	align-items: center;
+	gap: 15px;
+	padding: 42px;
+}
+
+.toasted .icono {
+	color: rgba(0, 0, 0, 0.4);
+}
+
+.toasted .titulo {
+	font-size: 20px;
+	font-weight: 600;
+	margin-bottom: 5px;
+}
+
+.toasted .texto {
+	color: #1F1F1F;
+}
+
+.toasted .btn-cerrar {
+	background: rgba(0, 0, 0, 0.1);
+	border: none;
+	cursor: pointer;
+	padding: 0px 5px;
+	transition: 0.3s ease all;
+}
+
+.toasted .btn-cerrar:hover {
+	background: rgba(0, 0, 0, 0.3);
+}
+
+.toasted .btn-cerrar .icono {
+	width: 20px;
+	height: 20px;
+	color: #fff;
+}
+
+@keyframes apertura {
+	from {
+		transform: translateY(0);
+		opacity: 0;
+	}
+	to {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
+
+.toasted.cerrando {
+	animation: none;
+	animation-name: cierre;
+	animation-duration: 200ms;
+	animation-timing-function: ease-out;
+	animation-fill-mode: forwards;
+}
+
+@keyframes cierre {
+	from {
+		transform: translateX(0);
+		opacity: 1;
+	}
+	to {
+		transform: translateX(0);
+		opacity: 0;
+	}
+}
+
+.toasted.autoCierre::after {
+	content: '';
+	width: 100%;
+	height: 4px;
+	background: rgba(0, 0, 0, 0.5);
+	position: absolute;
+	bottom: 0;
+	animation-name: autoCierre;
+	animation-duration: 60s; 
+	animation-timing-function: ease-out;
+	animation-fill-mode: forwards;
+}
+
+@keyframes autoCierre {
+	from {
+		width: 100%;
+	}
+	to {
+		width: 0%;
+	}
+}
+
+
+@keyframes parpadeo {
+    0% {
+        opacity: 100%;
+	}
+    50% {
+        opacity: 15%;
+    }
+    100% {
+        opacity: 100%;
+    }
+}
+
+
+@keyframes colorChangeLong {
+    0% {
+        background-color: #ffcccc;
+        color: #ff0000;
+        border-color: #ff0000;
+    }
+
+    100% {
+        background-color: #ff0000; /* Cambia a rojo sólido */
+        color: #0a0a0a; /* Cambia a texto blanco */
+        border-color: #ff0000; /* Mantiene el borde rojo */
+    }
+}
+
+@keyframes colorChangeShort {
+    0% {
+        background-color: #f7eebf;
+        color: #020202;
+        border-color: #fcdb1f;
+    }
+
+    100% {
+        background-color: #fcdb1f; /* Cambia a rojo sólido */
+        color: #020202; /* Cambia a texto blanco */
+        border-color: #fcdb1f; /* Mantiene el borde rojo */
+    }
+}
+
+@keyframes colorChangeDouble {
+    0% {
+        background-color: #f5d1b0;
+        color: #020202;
+        border-color: #fc7b03;
+    }
+
+    100% {
+        background-color: #fc7b03; /* Cambia a rojo sólido */
+        color: #020202; /* Cambia a texto blanco */
+        border-color: #fc7b03; /* Mantiene el borde rojo */
+    }
+}
