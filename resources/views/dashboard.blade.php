@@ -25,15 +25,62 @@
                                 </div>
                             </div>
                             <div class="card-body">
-                                <div class="row" style="background-color:aquamarine; min-height: 75vh">
-                                    <div class="col-lg-5" style="background-color:red; height: 75vh">
-
+                                <div class="row">
+                                    <div class="col-lg-5" style="height: 80vh; padding: 20px;">
+                                        <form>
+                                            <div class="mb-3">
+                                                <label for="codigoAlumno"   style="font-size: 25px" class="form-label">Código Alumno: </label>
+                                                <label id="codigoAlumno" style="font-size: 25px" class="" readonly>12345</label>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="nombreAlumno" class="form-label">Nombre Alumno</label>
+                                                <label id="nombreAlumno" class="form-control custom-input" readonly>Juan Perez</label>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="apoderado" class="form-label">Apoderado</label>
+                                                <label id="apoderado" class="form-control custom-input" readonly>Maria Lopez</label>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="placa" class="form-label">Placa</label>
+                                                <label id="placa" class="form-control custom-input" readonly>ABC123</label>
+                                            </div>
+                                            <!-- Agrega los demás campos necesarios -->
+                                        </form>
                                     </div>
-                                    <div class="col-lg-7" style="background-color:blue; height: 40vh">
-
+                                    <div class="col-lg-7" style="display: flex; flex-direction: column;">
+                                        <div style="flex: 1">
+                                            <div class="contenedor-grid">
+                                                <div class="contenedor-toast" id="contenedor-toast" style="display: flex; flex-direction: column; gap: 20px;">
+                                                    <div class="toasted exito">
+                                                        <div class="contenido">
+                                                            <div class="icono">🎉</div>
+                                                            <div>
+                                                                <div class="titulo">Éxito</div>
+                                                                <div class="texto">Se ha completado la acción con éxito.</div>
+                                                            </div>
+                                                        </div>
+                                                        <button class="btn-cerrar">X</button>
+                                                    </div>
+                                                    <div class="toasted error">
+                                                        <div class="contenido">
+                                                            <div class="icono">❌</div>
+                                                            <div>
+                                                                <div class="titulo">Error</div>
+                                                                <div class="texto">Ha ocurrido un error al procesar la solicitud.</div>
+                                                            </div>
+                                                        </div>
+                                                        <button class="btn-cerrar">X</button>
+                                                    </div>
+                                                    <!-- Agrega más elementos de toast aquí si es necesario -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div style="flex: 1; background-color: #4b6d72; display: flex; justify-content: center; align-items: center;">
+                                            <img src="ruta/de/la/imagen.jpg" alt="Descripción de la imagen">
+                                        </div>                                        
                                     </div>
                                 </div>
-                            </div>
+                            </div>        
                         </div>
                     </div>
                 </div>
