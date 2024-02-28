@@ -1,4 +1,4 @@
-var valor = 1;
+var valor = 3;
 
 $(document).ready(function() {
     // Código que se ejecutará cuando el DOM esté listo
