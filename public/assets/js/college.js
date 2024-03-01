@@ -97,42 +97,23 @@ function toggleFullscreen() {
     }
 }
 
-// Función para manejar el cambio de tamaño del card-body
-function handleResize(cardBody) {
-    if (document.fullscreenElement) {
-        cardBody.style.height = '89vh';
-    } else {
-        cardBody.style.height = '75vh';
-    }
-}
-
-// Obtener el card-body específico por su ID
-var specificCardBody = document.getElementById('card-body-dashboard');
-
-// Agregar un event listener para detectar cambios de tamaño de pantalla
-document.addEventListener('fullscreenchange', function() {
+document.addEventListener('DOMContentLoaded', function() {
+    var specificCardBody = document.getElementById('card-body-dashboard');
     handleResize(specificCardBody);
+
+    document.addEventListener('fullscreenchange', function() {
+        specificCardBody = document.getElementById('card-body-dashboard'); // Actualiza la referencia al elemento
+        handleResize(specificCardBody);
+    });
 });
 
-// Inicializar la altura del card-body
-handleResize(specificCardBody);
-
-
-function toggleFullscreen() {
-    var elem = document.documentElement;
-    if (!document.fullscreenElement) {
-        elem.requestFullscreen().then(() => {
-            document.getElementById('fullscreen-img').style.height = ''; // Ajustar al tamaño deseado en pantalla completa
-            document.getElementById('fullscreen-img').style.marginTop = '5rem'; // Ajustar el margin-top
-        }).catch((err) => {
-            console.log(`Error al intentar activar el modo de pantalla completa: ${err.message}`);
-        });
-    } else {
-        document.exitFullscreen().then(() => {
-            document.getElementById('fullscreen-img').style.height = ''; // Restaurar el tamaño original
-            document.getElementById('fullscreen-img').style.marginTop = ''; // Restaurar el margin-top original
-        }).catch((err) => {
-            console.log(`Error al intentar salir del modo de pantalla completa: ${err.message}`);
-        });
-    }
+function handleResize(cardBody) {
+    if (cardBody) { // Verifica si cardBody es null
+        if (document.fullscreenElement) {
+            cardBody.style.height = '89vh';
+        } else {
+            cardBody.style.height = '75vh';
+        }
+    } 
 }
+
