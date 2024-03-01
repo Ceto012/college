@@ -261,7 +261,11 @@
 #fullscreen-img:hover {
     transform: scale(1.05); /* Aumenta ligeramente el tamaño al pasar el mouse */
 }
+ 
+#table_reporte td{
+	text-align: center;
+}
 
-.buttons-pdf .dt-button-spinner {
-    display: none !important;
+#table_reporte th{
+	text-align: center;
 }

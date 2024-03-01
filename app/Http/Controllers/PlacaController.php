@@ -55,8 +55,6 @@ class PlacaController extends Controller
         }
     }
 
-
-
     public function eliminarRegistro($codigo)
     {
 

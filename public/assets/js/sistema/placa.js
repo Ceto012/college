@@ -1,6 +1,7 @@
 $(document).ready(function () {
     // Asignar función al evento submit del formulario
     $("#formSubirCSV").submit(enviarFormulario);
+    $("#formPlaca").submit(enviarFormularioPlaca);
 
     $("#table_plate").DataTable({
         dom:
@@ -133,6 +134,55 @@ function enviarFormulario(event) {
             }
             $("#formSubirCSV")[0].reset();
             $("#modalSubirCSV").modal("hide");
+            $(".modal-backdrop").remove();
+            $("#table_plate").DataTable().ajax.reload();
+        },
+        error: function (error) {
+            response = JSON.parse(error.responseText);
+            Swal.fire({
+                icon: "error",
+                title: "Error",
+                text: response.message,
+            });
+        },
+    });
+}
+
+//Funcion para mandar mis datos de placa
+function enviarFormularioPlaca(event) {
+    event.preventDefault();
+
+    var formData = new FormData($(this)[0]);
+
+    $.ajax({
+        url: "/registrar-placa",
+        method: "POST",
+        headers: {
+            "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+        },
+        data: formData,
+        processData: false,
+        contentType: false,
+        dataType: "JSON",
+        success: function (response) {
+            console.log(response);
+            if (response.success) {
+                // Mostrar mensaje de éxito con SweetAlert
+                Swal.fire({
+                    icon: "success",
+                    title: "Éxito",
+                    text: response.message,
+                });
+            } else {
+                // Mostrar mensaje de error con SweetAlert
+                Swal.fire({
+                    icon: "error",
+                    title: "Error",
+                    text: response.message,
+                });
+            }
+            $("#formPlaca")[0].reset();
+            $("#modalRegistroPlaca").modal("hide");
             $(".modal-backdrop").remove();
             $("#table_plate").DataTable().ajax.reload();
         },
