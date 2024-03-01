@@ -12,7 +12,7 @@
                             </div>
                             <a href="" class="btn bg-primary btn-sm mb-0" data-bs-toggle="modal"
                                 data-bs-target="#modalRegistroPlaca" style="color: white" type="button">+&nbsp; Registrar
-                                Placa</a>
+                                Anexo</a>
                             <div class="modal fade" id="modalRegistroPlaca" tabindex="-1"
                                 aria-labelledby="registroPlacaModalLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered modal-lg">
@@ -26,19 +26,15 @@
                                             <!-- Aquí puedes agregar los campos del formulario para registrar la placa -->
                                             <form>
                                                 <div class="mb-3">
-                                                    <label for="codigoAlumno" class="form-label">ID</label>
-                                                    <input type="text" class="form-control" id="codigoAlumno">
+                                                    <label for="nombreAlumno" class="form-label">Nombre del Anexo</label>
+                                                    <input type="text" class="form-control" id="nombreAlumno" placeholder="Ingrese el nombre del anexo">
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label for="nombreAlumno" class="form-label">Nombre de anexo</label>
-                                                    <input type="text" class="form-control" id="nombreAlumno">
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="apoderado" class="form-label">Numero de anexo</label>
-                                                    <input type="text" class="form-control" id="apoderado">
+                                                    <label for="apoderado" class="form-label">Número del Anexo</label>
+                                                    <input type="text" class="form-control" id="apoderado" placeholder="Ingrese el número de anexo">
                                                 </div>
                                                 <!-- Agrega los demás campos necesarios -->
-                                            </form>
+                                            </form>                                            
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary"

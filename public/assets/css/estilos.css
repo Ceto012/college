@@ -65,27 +65,12 @@
 	background: var(--warning-hover);
 }
 
-/* Toast 
-.contenedor-toast {
-	position: fixed;
-	right: 40px;
-	bottom: 40px;
-	width: 100%;
-	max-width: 400px;
-	display: flex;
-	flex-direction: column-reverse;
-	gap: 20px;
-}*/
-
-
-
 .contenedor-toast {
 	margin: 20px;
     display: grid; /* Cambiar de flex a grid */
     grid-template-columns: repeat(5, 1fr); /* 5 columnas con tamaño igual */
     gap: 20px;
 }
-
 
 .toasted {
 	width: 100%;
@@ -102,6 +87,8 @@
 
 .toasted.exito {
 	background: var(--exito);
+	animation: colorChangeShort  2s infinite alternate; 
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }
 .toasted.error {
 	background: var(--error);
@@ -235,22 +222,22 @@
 
     100% {
         background-color: #ff0000; /* Cambia a rojo sólido */
-        color: #0a0a0a; /* Cambia a texto blanco */
+        color: #FFF; /* Cambia a texto blanco */
         border-color: #ff0000; /* Mantiene el borde rojo */
     }
 }
 
 @keyframes colorChangeShort {
     0% {
-        background-color: #f7eebf;
-        color: #020202;
-        border-color: #fcdb1f;
+        background-color: #9ef0b4;
+        color: #3ab65c;
+        border-color: #acddb9;
     }
 
     100% {
-        background-color: #fcdb1f; /* Cambia a rojo sólido */
-        color: #020202; /* Cambia a texto blanco */
-        border-color: #fcdb1f; /* Mantiene el borde rojo */
+        background-color: #3ab65c; /* Cambia a rojo sólido */
+        color: #fff; /* Cambia a texto blanco */
+        border-color: #3ab65c; /* Mantiene el borde rojo */
     }
 }
 
@@ -268,7 +255,47 @@
     }
 }
 
-
-#table_plat thead th {
-	text-align: center; /* Centra el texto en todas las celdas del encabezado */
+/* Estilos para la tabla personalizada */
+.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1.5rem;
 }
+
+/* Estilos para las celdas de la tabla personalizada */
+.custom-table td,
+.custom-table th {
+    padding: 2rem;
+    border: 1px solid #dee2e6;
+}
+
+/* Estilos para las filas pares de la tabla personalizada */
+.custom-table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Estilos específicos para la primera columna de la tabla personalizada */
+.custom-table tbody tr td:first-child {
+    font-weight: bold;
+}
+
+/* Estilos para el texto en negrita en la tabla personalizada */
+.custom-table .fw-bold {
+    font-weight: bold;
+}
+
+/* Estilos para la imagen */
+#fullscreen-img {
+    max-width: 100%; /* La imagen no superará el ancho máximo del contenedor */
+    height: auto; /* Se ajustará automáticamente para mantener la proporción original */
+    border: 2px solid #ccc; /* Borde de 2px sólido gris */
+    border-radius: 10px; /* Bordes redondeados de 10px */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    transition: transform 0.3s ease; /* Efecto de transición suave */
+}
+
+/* Estilo al pasar el mouse sobre la imagen (opcional) */
+#fullscreen-img:hover {
+    transform: scale(1.05); /* Aumenta ligeramente el tamaño al pasar el mouse */
+}
+
