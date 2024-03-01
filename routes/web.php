@@ -82,6 +82,9 @@ Route::post('/busqueda-reporte', [RegistroController::class, 'generarReporte']);
 
 Route::get('/generar-pdf', [PdfController::class, 'generarPdf']);
 
+Route::post('/generar-pdf-reporte', [PdfController::class, 'generarPdfReporte']);
+
+
 
 
 

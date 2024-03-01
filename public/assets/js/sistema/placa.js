@@ -213,8 +213,8 @@ function editarRegistro(codigo) {
         success: function (response) {
             console.log(response);
             // Actualizar el contenido del modal con los datos recibidos
-            //$("#codigoAlumno").val(response.registro.cod_estudiante);
-            //$("#nombreAlumno").val(response.registro.nombre);
+            $("#codigoAlumno").val(response.registro.cod_estudiante);
+            $("#nombreAlumno").val(response.registro.nombre);
             $("#apoderado").val(response.registro.apoderado);
             $("#placa").val(response.registro.placa);
             //$("#imagen").attr("src", response.registro.imagen);

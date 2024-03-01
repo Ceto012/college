@@ -17,6 +17,10 @@ $(document).ready(function () {
                 extend: "pdf",
                 className: "btn bg-secondary text-white",
                 text: '<i class="fa fa-file-pdf"></i> Exportar PDF',
+                action: function (e, dt, button, config) {
+                    // Generar PDF al hacer clic en el botón "Exportar PDF"
+                    generarPDFReporte();
+                },
             },
         ],
         language: {
@@ -50,7 +54,7 @@ $(document).ready(function () {
 
 });
 
-//Funcion para mandar mi archivo CSV a mi contrador
+// Función para enviar el formulario y obtener los datos del reporte
 function enviarFormulario(event) {
     event.preventDefault();
 
@@ -64,15 +68,7 @@ function enviarFormulario(event) {
         contentType: false,
         dataType: "JSON",
         success: function (response) {
-            //console.log(response);
             if (response.success) {
-                // Mostrar mensaje de éxito con SweetAlert
-                /*Swal.fire({
-                    icon: "success",
-                    title: "Éxito",
-                    text: response.message,
-                });*/
-
                 // Limpia la tabla antes de agregar nuevos datos
                 $("#table_reporte").DataTable().clear().draw();
 
@@ -84,14 +80,11 @@ function enviarFormulario(event) {
                             resultado.id,
                             resultado.placa,
                             resultado.fecha,
-                            //resultado.created_at,
-                            //resultado.updated_at,
-                            // Agrega más columnas según sea necesario
                         ])
                         .draw();
                 });
             } else {
-                // Mostrar mensaje de error con SweetAlert
+                // Mostrar mensaje de error
                 Swal.fire({
                     icon: "warning",
                     title: "",
@@ -102,7 +95,6 @@ function enviarFormulario(event) {
                 $("#table_reporte").DataTable().clear().draw();
             }
             $("#form-reporte")[0].reset();
-            //$("#table_reporte").DataTable().ajax.reload();
         },
         error: function (error) {
             response = JSON.parse(error.responseText);
@@ -114,6 +106,37 @@ function enviarFormulario(event) {
         },
     });
 }
+
+function generarPDFReporte() {
+    // Realizar una solicitud AJAX para generar el PDF
+
+    // Obtener los datos del DataTable
+    var data = $('#table_reporte').DataTable().data().toArray();
+
+    // Convertir los datos a JSON
+    var jsonData = JSON.stringify(data);
+
+    // Imprimir los datos en la consola
+    console.log(jsonData);
+    $.ajax({
+        url: '/generar-pdf-reporte',
+        type: 'POST',
+        headers: {
+            "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+        },
+        dataType: 'json',
+        data: { data: jsonData }, // Pasar el JSON como parámetro llamado 'data'
+        success: function (response) {
+            // Abrir el PDF en una nueva pestaña
+            window.open(response.pdf_url, '_blank');
+        },
+        error: function(xhr, status, error) {
+            // Manejar errores si es necesario
+            console.error(xhr);
+        }
+    });
+}
+
 
 // Función para convertir fecha de formato ISO8601 a 'dd/mm/yyyy'
 function formatDate(dateString) {

@@ -34,8 +34,8 @@
     <table>
         <thead>
             <tr>
-                {{-- <th>Codigo Alumno</th>
-                <th>Nombre Alumno</th> --}}
+                <th>Codigo Alumno</th>
+                <th>Nombre Alumno</th> 
                 <th>Apoderado</th>
                 <th>Placa</th>
                 <!-- Agregar más columnas si es necesario -->
@@ -44,8 +44,8 @@
         <tbody>
             @foreach ($placas as $placa)
             <tr>
-                {{-- <td>{{ $placa->cod_estudiante }}</td>
-                <td>{{ $placa->nombre }}</td> --}}
+                <td>{{ $placa->cod_estudiante }}</td>
+                <td>{{ $placa->nombre }}</td> 
                 <td>{{ $placa->apoderado }}</td>
                 <td>{{ $placa->placa }}</td>
                 <!-- Agregar más columnas si es necesario -->
