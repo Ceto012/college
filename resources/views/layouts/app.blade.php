@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 
 @if (\Request::is('rtl'))
-    <html dir="rtl" lang="ar">
+<html dir="rtl" lang="ar">
 @else
-    <html lang="es">
+<html lang="es">
 @endif
 
 <head>
@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     @if (env('IS_DEMO'))
-        <x-demo-metas></x-demo-metas>
+    <x-demo-metas></x-demo-metas>
     @endif
 
     <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
@@ -31,15 +31,19 @@
     <link id="Paginastyle" href="../assets/css/soft-ui-dashboard.css?v=1.0.3" rel="stylesheet" />
     <!-- CSS estilos -->
     <link href="../assets/css/estilos.css" rel="stylesheet" />
+
+    <!--     DataTable CSS   -->
+    <!-- <link rel="stylesheet" href="../assets/plugin/datatable/datatables.min.css"> -->
+    <link href="../assets/plugin/datatable/buttons/css/buttons.dataTables.min.css" rel="stylesheet">
+    <link href="../assets/plugin/datatable/buttons/css/buttons.bootstrap5.min.css" rel="stylesheet">
 </head>
 
-<body style="overflow-y: hidden"
-    class="g-sidenav-show  bg-gray-100 {{ \Request::is('rtl') ? 'rtl' : (Request::is('virtual-reality') ? 'virtual-reality' : '') }} ">
+<body style="overflow-y: hidden" class="g-sidenav-show  bg-gray-100 {{ \Request::is('rtl') ? 'rtl' : (Request::is('virtual-reality') ? 'virtual-reality' : '') }} ">
     @auth
-        @yield('auth')
+    @yield('auth')
     @endauth
     @guest
-        @yield('guest')
+    @yield('guest')
     @endguest
 
     {{-- @if (session()->has('success'))
@@ -48,8 +52,8 @@
         x-show="show"
         class="position-fixed bg-success rounded right-3 text-sm py-2 px-4">
       <p class="m-0">{{ session('success')}}</p>
-  </div>
-  @endif --}}
+    </div>
+    @endif --}}
     <!--   Jquery 3.17   -->
     <script src="../assets/js/plugins/jquery.min.js"></script>
     <!--   Core JS Files   -->
@@ -59,7 +63,7 @@
     <script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
     <script src="../assets/js/plugins/fullcalendar.min.js"></script>
     <script src="../assets/js/plugins/chartjs.min.js"></script>
- 
+
 
 
     @stack('rtl')
@@ -83,7 +87,19 @@
 
     <script src="../assets/js/sistema/dashboard.js"></script>
     <script src="../assets/js/sistema/placa.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+
+    <!--     DataTable JS     -->
+    <script src="../assets/plugin/datatable/datatables.min.js"></script>
+    <script src="../assets/plugin/datatable/buttons/js/dataTables.buttons.min.js"></script>
+    <script src="../assets/plugin/datatable/buttons/js/buttons.html5.min.js"></script>
+    <script src="../assets/plugin/datatable/buttons/js/buttons.print.min.js"></script>
+    <script src="../assets/plugin/datatable/pdfmake/pdfmake.min.js"></script>
+    <script src="../assets/plugin/datatable/pdfmake/vfs_fonts.js"></script>
+
+
+    <!--     SweetAlert JS     -->
+    <script src="../assets/js/plugins/sweetalert.min.js"></script>
 
 </body>
 
