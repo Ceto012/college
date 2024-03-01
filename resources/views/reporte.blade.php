@@ -20,7 +20,7 @@
                                         <select class="form-select" id="tipo-placa" name="tipo-busqueda" required>
                                             <option label="Seleccione"></option>
                                             <option value="placa">Placa</option>
-                                            <option value="codigo">Código</option>
+                                            <!-- <option value="codigo">Código</option> -->
                                         </select>
                                     </div>
                                 </div>
@@ -81,15 +81,12 @@
                                 if (selectedValue === 'placa') {
                                     document.getElementById('placa-input').style.display = 'block';
                                     document.getElementById('codigo-input').style.display = 'none';
-                                    document.getElementById('dni-input').style.display = 'none';
                                 } else if (selectedValue === 'codigo') {
                                     document.getElementById('placa-input').style.display = 'none';
                                     document.getElementById('codigo-input').style.display = 'block';
-                                    document.getElementById('dni-input').style.display = 'none';
                                 } else if (selectedValue === 'dni') {
                                     document.getElementById('placa-input').style.display = 'none';
                                     document.getElementById('codigo-input').style.display = 'none';
-                                    document.getElementById('dni-input').style.display = 'block';
                                 }
                             });
                         </script>
@@ -106,12 +103,12 @@
                             <table class="table align-items-center mb-0" id="table_reporte">
                                 <thead>
                                     <tr>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        <!-- <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Codigo Alumno
                                         </th>
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
                                             Nombre Alumno
-                                        </th>
+                                        </th> -->
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Apoderado
                                         </th>

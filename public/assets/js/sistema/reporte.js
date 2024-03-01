@@ -38,7 +38,7 @@ $(document).ready(function () {
                 sSortDescending:
                     ": Activar para ordenar la columna de manera descendente",
             },
-        }
+        },
     });
 
     // Anular estilos de DataTables Buttons y aplicar estilos de Bootstrap
@@ -47,17 +47,7 @@ $(document).ready(function () {
     $(".buttons-pdf").removeClass("dt-button").addClass("btn");
     $(".buttons-print").removeClass("dt-button").addClass("btn");
 
-    /*$.ajax({
-        url: "/placadash",
-        method: "GET",
-        dataType: "JSON",
-        success: function (response) {
-            console.log(response);
-        },
-        error: function (error) {
-            console.log(error.responseText);
-        },
-    });*/
+
 });
 
 //Funcion para mandar mi archivo CSV a mi contrador
@@ -74,21 +64,42 @@ function enviarFormulario(event) {
         contentType: false,
         dataType: "JSON",
         success: function (response) {
-            console.log(response);
+            //console.log(response);
             if (response.success) {
                 // Mostrar mensaje de éxito con SweetAlert
-                Swal.fire({
+                /*Swal.fire({
                     icon: "success",
                     title: "Éxito",
                     text: response.message,
+                });*/
+
+                // Limpia la tabla antes de agregar nuevos datos
+                $("#table_reporte").DataTable().clear().draw();
+
+                // Itera sobre los resultados y agrégalos a la tabla
+                response.resultados.forEach(function (resultado) {
+                    $("#table_reporte")
+                        .DataTable()
+                        .row.add([
+                            resultado.id,
+                            resultado.placa,
+                            resultado.fecha,
+                            //resultado.created_at,
+                            //resultado.updated_at,
+                            // Agrega más columnas según sea necesario
+                        ])
+                        .draw();
                 });
             } else {
                 // Mostrar mensaje de error con SweetAlert
                 Swal.fire({
-                    icon: "error",
-                    title: "Error",
+                    icon: "warning",
+                    title: "",
                     text: response.message,
                 });
+
+                // Limpia la tabla antes de agregar nuevos datos
+                $("#table_reporte").DataTable().clear().draw();
             }
             $("#form-reporte")[0].reset();
             //$("#table_reporte").DataTable().ajax.reload();
@@ -120,5 +131,3 @@ function formatDate(dateString) {
         anio
     );
 }
-
-

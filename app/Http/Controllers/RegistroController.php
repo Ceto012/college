@@ -33,6 +33,10 @@ class RegistroController extends Controller
                     return response()->json(['success' => false, 'message' => 'Tipo de búsqueda no válido'], 400);
             }
 
+            if ($resultados->isEmpty()) {
+                return response()->json(['success' => false, 'message' => 'Sin resultados']);
+            }
+    
             // Retornar los resultados
             return response()->json(['success' => true, 'resultados' => $resultados]);
         } catch (\Exception $e) {
