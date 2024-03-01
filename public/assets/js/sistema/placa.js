@@ -51,8 +51,8 @@ $(document).ready(function () {
             dataSrc: "",
         },
         columns: [
-            // { data: "cod_estudiante" },
-            // { data: "nombre" },
+            { data: "cod_estudiante" },
+            { data: "nombre" },
             { data: "apoderado" },
             { data: "placa" },
             { data: "imagen" },
@@ -72,10 +72,10 @@ $(document).ready(function () {
                     return (
                         '<div class="acciones">' +
                         '<a href="#" class="editar" onclick="editarRegistro(\'' +
-                        row.placa +
+                        row.cod_estudiante +
                         '\')" data-bs-toggle="tooltip" data-bs-original-title="Editar usuario"><i class="fas fa-user-edit text-secondary mx-3"></i></a>' +
                         '<a href="#" class="eliminar" onclick="confirmarEliminacion(\'' +
-                        row.placa +
+                        row.cod_estudiante +
                         '\')" data-bs-toggle="tooltip" data-bs-original-title="Eliminar usuario"><i class="fas fa-trash text-secondary"></i></a>' +
                         "</div>"
                     );
