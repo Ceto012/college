@@ -43,6 +43,57 @@ class Placa extends Model
         return static::where('cod_estudiante', $codigo)->first();
     }
 
+    public static function registrarOActualizarPlaca($request)
+    {
+        // Validar si la placa ya existe en la base de datos
+        $placaExistente = self::buscarPorCodigo($request->codigoAlumno);
+
+        if ($placaExistente) {
+            // Si la placa ya existe, actualizar los datos
+
+            // Lógica para manejar la imagen si se proporciona una nueva imagen
+            $nombreImagen = $placaExistente->imagen;
+            if ($request->hasFile('imagen') && $request->file('imagen')->isValid()) {
+                $imagen = $request->file('imagen');
+                $nombreImagen = $imagen->getClientOriginalName();
+                $imagen->storeAs('imagenes', $nombreImagen);
+            }
+
+            // Actualizar los campos de la placa
+            $placaExistente->update([
+                'nombre' => $request->nombreAlumno,
+                'apoderado' => $request->apoderado,
+                'placa' => $request->placa,
+                'imagen' => $nombreImagen,
+                // Otros campos si es necesario
+            ]);
+
+            return $placaExistente;
+        } else {
+            // Si la placa no existe, crear un nuevo registro
+
+            // Lógica para manejar la imagen si se proporciona una nueva imagen
+            $nombreImagen = null;
+            if ($request->hasFile('imagen') && $request->file('imagen')->isValid()) {
+                $imagen = $request->file('imagen');
+                $nombreImagen = $imagen->getClientOriginalName();
+                $imagen->storeAs('imagenes', $nombreImagen);
+            }
+
+            // Crear una nueva placa
+            $placaNueva = self::create([
+                'cod_estudiante' => $request->codigoAlumno,
+                'nombre' => $request->nombreAlumno,
+                'apoderado' => $request->apoderado,
+                'placa' => $request->placa,
+                'imagen' => $nombreImagen,
+                // Otros campos si es necesario
+            ]);
+
+            return $placaNueva;
+        }
+    }
+
     public static function eliminarPorCodigo($codigo)
     {
         $placa = self::where('cod_estudiante', $codigo)->first();

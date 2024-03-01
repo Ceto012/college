@@ -38,9 +38,28 @@ class PlacaController extends Controller
         }
     }
 
+    public function registrarPlaca(Request $request)
+    {
+        try {
+            // Llamar al método del modelo para registrar o actualizar la placa
+            $placa = Placa::registrarOActualizarPlaca($request);
+
+            // Determinar si se ha actualizado o creado la placa
+            $accion = $placa->wasRecentlyCreated ? 'creada' : 'actualizada';
+
+            // Retornar una respuesta exitosa
+            return response()->json(['success' => true, 'message' => 'Placa ' . $accion . ' correctamente', 'placa' => $placa]);
+        } catch (\Exception $e) {
+            // Manejar el error y devolver una respuesta de error
+            return response()->json(['success' => false, 'message' => 'Error al registrar o actualizar la placa: ' . $e->getMessage()], 500);
+        }
+    }
+
+
+
     public function eliminarRegistro($codigo)
     {
-      
+
         $registro = Placa::eliminarPorCodigo($codigo);
 
         if ($registro) {

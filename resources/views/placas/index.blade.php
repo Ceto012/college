@@ -22,36 +22,36 @@
                                         <h5 class="modal-title" id="registroPlacaModalLabel">Registrar Placa</h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
-                                    <form>
+                                    <form id="formPlaca">
                                         <div class="modal-body">
                                             <!-- Aquí puedes agregar los campos del formulario para registrar la placa -->
 
                                             <div class="mb-3">
                                                 <label for="codigoAlumno" class="form-label">Código Alumno</label>
-                                                <input type="text" class="form-control" id="codigoAlumno">
+                                                <input type="text" class="form-control upper" name="codigoAlumno" id="codigoAlumno" required>
                                             </div>
                                             <div class="mb-3">
                                                 <label for="nombreAlumno" class="form-label">Nombre Alumno</label>
-                                                <input type="text" class="form-control" id="nombreAlumno">
+                                                <input type="text" class="form-control" id="nombreAlumno" name="nombreAlumno" required>
                                             </div>
                                             <div class="mb-3">
                                                 <label for="apoderado" class="form-label">Apoderado</label>
-                                                <input type="text" class="form-control" id="apoderado">
+                                                <input type="text" class="form-control" id="apoderado" name="apoderado" required>
                                             </div>
                                             <div class="mb-3">
                                                 <label for="placa" class="form-label">Placa</label>
-                                                <input type="text" class="form-control" id="placa">
+                                                <input type="text" class="form-control upper" id="placa" name="placa" required>
                                             </div>
                                             <div class="mb-3">
                                                 <label for="imagen" class="form-label">Imagen</label>
-                                                <input type="file" class="form-control" id="imagen">
+                                                <input type="file" class="form-control" id="imagen" name="imagen">
                                             </div>
                                             <!-- Agrega los demás campos necesarios -->
 
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                                            <button type="submit" class="btn btn-primary">Guardar</button>
+                                            <button type="submit" class="btn btn-primary" id="submitFormPlaca">Guardar</button>
                                         </div>
                                     </form>
                                 </div>
