@@ -8,6 +8,7 @@ use App\Http\Controllers\ResetController;
 use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\RequestController;
 use App\Http\Controllers\PlacaController;
+use App\Http\Controllers\RegistroController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Route;
@@ -69,6 +70,8 @@ Route::get('/login', function () {
 //Consultas AJAX
 Route::post('/importar-csv-placa', [PlacaController::class, 'importarCSV']);
 Route::get('/listar-placas', [PlacaController::class, 'obtenerDatos']);
+Route::post('/registrar-placa', [PlacaController::class, 'registrarPlaca']);
 Route::get('/buscar-cod-estudiante/{codigo}', [PlacaController::class, 'buscarRegistro']);
 Route::delete('/eliminar-registro/{codigo}', [PlacaController::class, 'eliminarRegistro']);
 
+Route::post('/busqueda-reporte', [RegistroController::class, 'generarReporte']);

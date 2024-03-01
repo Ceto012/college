@@ -1,6 +1,6 @@
 $(document).ready(function () {
     // Asignar función al evento submit del formulario
-    $("#formSubirCSV").submit(enviarFormulario);
+    $("#form-reporte").submit(enviarFormulario);
 
     $("#table_reporte").DataTable({
         dom:
@@ -38,24 +38,7 @@ $(document).ready(function () {
                 sSortDescending:
                     ": Activar para ordenar la columna de manera descendente",
             },
-        },
-        ajax: {
-            url: "/listar-placas",
-            type: "GET",
-            dataSrc: "",
-        },
-        columns: [
-            { data: "cod_estudiante" },
-            { data: "nombre" },
-            { data: "apoderado" },
-            { data: "placa" },
-            {
-                data: "created_at",
-                render: function (data) {
-                    return formatDate(data); // Llama a la función formatDate para formatear la fecha
-                },
-            }
-        ],
+        }
     });
 
     // Anular estilos de DataTables Buttons y aplicar estilos de Bootstrap
@@ -84,13 +67,14 @@ function enviarFormulario(event) {
     var formData = new FormData($(this)[0]);
 
     $.ajax({
-        url: "/importar-csv-placa",
+        url: "/busqueda-reporte",
         method: "POST",
         data: formData,
         processData: false,
         contentType: false,
         dataType: "JSON",
         success: function (response) {
+            console.log(response);
             if (response.success) {
                 // Mostrar mensaje de éxito con SweetAlert
                 Swal.fire({
@@ -106,10 +90,8 @@ function enviarFormulario(event) {
                     text: response.message,
                 });
             }
-            $("#formSubirCSV")[0].reset();
-            $("#modalSubirCSV").modal("hide");
-            $(".modal-backdrop").remove();
-            $("#table_reporte").DataTable().ajax.reload();
+            $("#form-reporte")[0].reset();
+            //$("#table_reporte").DataTable().ajax.reload();
         },
         error: function (error) {
             response = JSON.parse(error.responseText);
@@ -139,89 +121,4 @@ function formatDate(dateString) {
     );
 }
 
-// Función para editar un registro
-function editarRegistro(codigo) {
-    // Aquí puedes agregar la lógica para editar el registro con el ID especificado
-    console.log("Editar registro con ID: " + codigo);
 
-    $.ajax({
-        url: "/buscar-cod-estudiante/" + codigo,
-        method: "GET",
-        dataType: "JSON",
-        success: function (response) {
-            console.log(response);
-            // Actualizar el contenido del modal con los datos recibidos
-            $("#codigoAlumno").val(response.registro.cod_estudiante);
-            $("#nombreAlumno").val(response.registro.nombre);
-            $("#apoderado").val(response.registro.apoderado);
-            $("#placa").val(response.registro.placa);
-            //$("#imagen").attr("src", response.registro.imagen);
-
-            // Mostrar el modal
-            $("#modalRegistroPlaca").modal("show");
-        },
-        error: function (error) {
-            console.log(error);
-        },
-    });
-}
-
-function confirmarEliminacion(codigo) {
-    Swal.fire({
-        title: '¿Estás seguro?',
-        text: 'Esta acción no se puede deshacer.',
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#d33',
-        cancelButtonColor: '#3085d6',
-        confirmButtonText: 'Sí, eliminar',
-        cancelButtonText: 'Cancelar'
-    }).then((result) => {
-        if (result.isConfirmed) {
-            // Si se confirma la eliminación, hacer la solicitud de eliminación
-            eliminarRegistro(codigo);
-        }
-    });
-}
-
-// Función para eliminar un registro
-function eliminarRegistro(codigo) {
-    // Aquí puedes agregar la lógica para confirmar la eliminación del registro con el ID especificado
-    console.log("Eliminar registro con ID: " + codigo);
-
-    $.ajax({
-        url: '/eliminar-registro/' + codigo,
-        method: 'DELETE',
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        },
-        dataType: 'json',
-        success: function(response) {
-            console.log(response);
-            if (response.success) {
-                // Mostrar mensaje de éxito con SweetAlert
-                Swal.fire({
-                    icon: "success",
-                    title: "Éxito",
-                    text: response.message,
-                });
-            } else {
-                // Mostrar mensaje de error con SweetAlert
-                Swal.fire({
-                    icon: "error",
-                    title: "Error",
-                    text: response.message,
-                });
-            }
-            $("#table_plate").DataTable().ajax.reload();
-        },
-        error: function(xhr, status, error) {
-            // Si hubo un error de AJAX, mostrar un mensaje de error
-            Swal.fire('Error', 'Hubo un error al procesar la solicitud.', 'error');
-        }
-    });
-}
-
-function abrirModal(idModal) {
-    $('#' + idModal).modal('show').find('form')[0].reset();
-}
