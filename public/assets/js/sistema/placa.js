@@ -318,4 +318,6 @@ function generarPDF() {
     });
 }
 
-
+$('.upper').on('input', function() {
+    $(this).val($(this).val().toUpperCase());
+  });

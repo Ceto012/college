@@ -28,23 +28,23 @@
 
                                             <div class="mb-3">
                                                 <label for="codigoAlumno" class="form-label">Código Alumno</label>
-                                                <input type="text" class="form-control" id="codigoAlumno" required minlength="6" maxlength="8" placeholder="Ingrese el código del alumno">
+                                                <input type="text" class="form-control upper" id="codigoAlumno" name="codigoAlumno" required minlength="6" maxlength="8" placeholder="Ingrese el código del alumno">
                                             </div>
                                             <div class="mb-3">
                                                 <label for="nombreAlumno" class="form-label">Nombre Alumno</label>
-                                                <input type="text" class="form-control" id="nombreAlumno" maxlength="100" required placeholder="Ingrese el nombre del alumno">
+                                                <input type="text" class="form-control" id="nombreAlumno" name="nombreAlumno" maxlength="100" required placeholder="Ingrese el nombre del alumno">
                                             </div>
                                             <div class="mb-3">
                                                 <label for="apoderado" class="form-label">Apoderado</label>
-                                                <input type="text" class="form-control" id="apoderado"  maxlength="100" required placeholder="Ingrese el nombre del apoderado">
+                                                <input type="text" class="form-control" id="apoderado" name="apoderado" maxlength="100" required placeholder="Ingrese el nombre del apoderado">
                                             </div>
                                             <div class="mb-3">
                                                 <label for="placa" class="form-label">Placa</label>
-                                                <input type="text" class="form-control" id="placa" required placeholder="Ingrese la placa del vehículo sin guión">
+                                                <input type="text" class="form-control upper" id="placa" name="placa" required placeholder="Ingrese la placa del vehículo sin guión">
                                             </div>
                                             <div class="mb-3">
                                                 <label for="imagen" class="form-label">Imagen</label>
-                                                <input type="file" class="form-control" id="imagen" accept=".jpg, .jpeg, .png">
+                                                <input type="file" class="form-control" id="imagen" name="imagen" accept=".jpg, .jpeg, .png">
                                             </div>
                                             <!-- Agrega los demás campos necesarios -->
 
