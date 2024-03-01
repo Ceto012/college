@@ -1,6 +1,6 @@
 $(document).ready(function () {
     // Asignar función al evento submit del formulario
-    $("#formSubirCSV").submit(enviarFormulario);
+    $("#formSubirPlacaCSV").submit(enviarFormularioCSVPlaca);
     $("#formPlaca").submit(enviarFormularioPlaca);
 
     $("#table_plate").DataTable({
@@ -51,8 +51,8 @@ $(document).ready(function () {
             dataSrc: "",
         },
         columns: [
-            { data: "cod_estudiante" },
-            { data: "nombre" },
+            // { data: "cod_estudiante" },
+            // { data: "nombre" },
             { data: "apoderado" },
             { data: "placa" },
             { data: "imagen" },
@@ -72,10 +72,10 @@ $(document).ready(function () {
                     return (
                         '<div class="acciones">' +
                         '<a href="#" class="editar" onclick="editarRegistro(\'' +
-                        row.cod_estudiante +
+                        row.placa +
                         '\')" data-bs-toggle="tooltip" data-bs-original-title="Editar usuario"><i class="fas fa-user-edit text-secondary mx-3"></i></a>' +
                         '<a href="#" class="eliminar" onclick="confirmarEliminacion(\'' +
-                        row.cod_estudiante +
+                        row.placa +
                         '\')" data-bs-toggle="tooltip" data-bs-original-title="Eliminar usuario"><i class="fas fa-trash text-secondary"></i></a>' +
                         "</div>"
                     );
@@ -89,24 +89,11 @@ $(document).ready(function () {
     $(".buttons-excel").removeClass("dt-button").addClass("btn");
     $(".buttons-pdf").removeClass("dt-button").addClass("btn");
     $(".buttons-print").removeClass("dt-button").addClass("btn");
-
-    /*$.ajax({
-        url: "/placadash",
-        method: "GET",
-        dataType: "JSON",
-        success: function (response) {
-            console.log(response);
-        },
-        error: function (error) {
-            console.log(error.responseText);
-        },
-    });*/
 });
 
 //Funcion para mandar mi archivo CSV a mi contrador
-function enviarFormulario(event) {
+function enviarFormularioCSVPlaca(event) {
     event.preventDefault();
-
     var formData = new FormData($(this)[0]);
 
     $.ajax({
@@ -132,7 +119,7 @@ function enviarFormulario(event) {
                     text: response.message,
                 });
             }
-            $("#formSubirCSV")[0].reset();
+            $("#formSubirPlacaCSV")[0].reset();
             $("#modalSubirCSV").modal("hide");
             $(".modal-backdrop").remove();
             $("#table_plate").DataTable().ajax.reload();
@@ -226,8 +213,8 @@ function editarRegistro(codigo) {
         success: function (response) {
             console.log(response);
             // Actualizar el contenido del modal con los datos recibidos
-            $("#codigoAlumno").val(response.registro.cod_estudiante);
-            $("#nombreAlumno").val(response.registro.nombre);
+            //$("#codigoAlumno").val(response.registro.cod_estudiante);
+            //$("#nombreAlumno").val(response.registro.nombre);
             $("#apoderado").val(response.registro.apoderado);
             $("#placa").val(response.registro.placa);
             //$("#imagen").attr("src", response.registro.imagen);

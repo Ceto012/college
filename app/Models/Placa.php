@@ -12,7 +12,8 @@ class Placa extends Model
 
     protected $table = 'placa'; // Nombre de la tabla
 
-    protected $fillable = ['cod_estudiante', 'nombre', 'apoderado', 'placa', 'imagen'];
+    //protected $fillable = ['cod_estudiante', 'nombre', 'apoderado', 'placa', 'imagen'];
+    protected $fillable = ['apoderado', 'placa', 'imagen'];
 
     public $timestamps = true; // Indica que Eloquent gestionará automáticamente los campos created_at y updated_at
 
@@ -24,9 +25,9 @@ class Placa extends Model
         $cabeceras = array_shift($datos);
 
         foreach ($datos as $fila) {
-            $cod_estudiante = $fila[0]; //Orden de 'cod_estudiante'
+            $placa = $fila[1]; //Orden de placa
 
-            $registro = self::where('cod_estudiante', $cod_estudiante)->first();
+            $registro = self::where('placa', $placa)->first();
 
             if ($registro) {
                 // Si el registro existe, lo actualizamos
@@ -43,10 +44,16 @@ class Placa extends Model
         return static::where('cod_estudiante', $codigo)->first();
     }
 
+    public static function buscarPorPlaca($codigo)
+    {
+        return static::where('placa', $codigo)->first();
+    }
+
     public static function registrarOActualizarPlaca($request)
     {
         // Validar si la placa ya existe en la base de datos
-        $placaExistente = self::buscarPorCodigo($request->codigoAlumno);
+        //$placaExistente = self::buscarPorCodigo($request->codigoAlumno);
+        $placaExistente = self::buscarPorPlaca($request->placa);
 
         if ($placaExistente) {
             // Si la placa ya existe, actualizar los datos
@@ -97,6 +104,16 @@ class Placa extends Model
     public static function eliminarPorCodigo($codigo)
     {
         $placa = self::where('cod_estudiante', $codigo)->first();
+        if ($placa) {
+            $placa->delete();
+            return true;
+        }
+        return false;
+    }
+
+    public static function eliminarPorPlaca($codigo)
+    {
+        $placa = self::where('placa', $codigo)->first();
         if ($placa) {
             $placa->delete();
             return true;

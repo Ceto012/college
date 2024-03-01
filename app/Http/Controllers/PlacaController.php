@@ -29,7 +29,8 @@ class PlacaController extends Controller
 
     public function buscarRegistro($codigo)
     {
-        $registro = Placa::buscarPorCodigo($codigo);
+        //$registro = Placa::buscarPorCodigo($codigo);
+        $registro = Placa::buscarPorPlaca($codigo);
 
         if ($registro) {
             return response()->json(['success' => true, 'message' => 'Registro encontrado', 'registro' => $registro]);
@@ -58,7 +59,7 @@ class PlacaController extends Controller
     public function eliminarRegistro($codigo)
     {
 
-        $registro = Placa::eliminarPorCodigo($codigo);
+        $registro = Placa::eliminarPorPlaca($codigo);
 
         if ($registro) {
             return response()->json(['success' => true, 'message' => 'Placa eliminada correctamente']);
