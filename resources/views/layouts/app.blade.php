@@ -86,6 +86,7 @@
 
   <script src="../assets/js/sistema/dashboard.js"></script>
   <script src="../assets/js/sistema/placa.js"></script>
+  <script src="../assets/js/sistema/reporte.js"></script>
 
   <!--     DataTable JS     -->
   <script src="../assets/plugin/datatable/datatables.min.js"></script>

@@ -115,71 +115,37 @@
                 </div>
                 <br>
                 <div class="col-12">
-                    <div class="card mb-4 p-4">
-                        <div class="card-header pb-0">
-                            <div class="d-flex flex-row justify-content-between">
-                            </div>
-                        </div>
-                        <div class="card-body px-0 pt-4 pb-2">
+                    <div class="card mb-4 p-4">                    
+                        <div class="card-body px-0 pt-5 pb-2">
                             <div class="table-responsive p-0">
-                                <table class="table align-items-center mb-0">
+                                <table class="table align-items-center mb-0" id="table_reporte">
                                     <thead>
                                         <tr>
                                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                                 Codigo Alumno
                                             </th>
-                                            <th
-                                                class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                                Alumno
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                                Nombre Alumno
                                             </th>
-                                            <th
-                                                class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                                 Apoderado
                                             </th>
-                                            <th
-                                                class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            <th class=" text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                                 Placa
                                             </th>
-                                            <th
-                                                class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                Imagen
-                                            </th>
-
-                                            <th
-                                                class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                Fecha de Ingreso
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                Fecha de Reporte
                                             </th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td class="ps-4">
-                                                <p class="text-xs font-weight-bold mb-0">1</p>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs font-weight-bold mb-0">Pepito</p>
-                                            </td>
-                                            <td class="text-center">
-                                                <p class="text-xs font-weight-bold mb-0">Thor</p>
-                                            </td>
-                                            <td class="text-center">
-                                                <p class="text-xs font-weight-bold mb-0">ICKKZK4</p>
-                                            </td>
-                                            <td class="text-center">
-                                                <div>
-                                                    <img src="../assets/img/team-2.jpg" class="avatar avatar-sm me-3">
-                                                </div>
-                                            </td>
-                                            <td class="text-center">
-                                                <span class="text-secondary text-xs font-weight-bold">16/06/18</span>
-                                            </td>
-                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
                 </div>
+                
             </div>
         </div>
     </main>
