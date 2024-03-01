@@ -267,3 +267,8 @@
         border-color: #fc7b03; /* Mantiene el borde rojo */
     }
 }
+
+
+#table_plat thead th {
+	text-align: center; /* Centra el texto en todas las celdas del encabezado */
+}

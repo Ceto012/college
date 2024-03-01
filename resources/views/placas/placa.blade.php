@@ -85,9 +85,9 @@
                         <!-- Modal -->
                     </div>
                 </div>
-                <div class="card-body px-0 pt-4 pb-2">
+                <div class="card-body px-0 pt-5 pb-2">
                     <div class="table-responsive p-0">
-                        <table class="table align-items-center mb-0">
+                        <table class="table align-items-center mb-0" id="table_plate">
                             <thead>
                                 <tr>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
@@ -116,7 +116,131 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td class="ps-4">
+                                    <td class="text-center">
+                                        <p class="text-xs font-weight-bold mb-0">1</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-xs font-weight-bold mb-0">Pepito</p>
+                                    </td>
+                                    <td class="text-center">
+                                        <p class="text-xs font-weight-bold mb-0">Thor</p>
+                                    </td>
+                                    <td class="text-center">
+                                        <p class="text-xs font-weight-bold mb-0">ICKKZK4</p>
+                                    </td>
+                                    <td class="text-center">
+                                        <div>
+                                            <img src="../assets/img/team-2.jpg" class="avatar avatar-sm me-3">
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <span class="text-secondary text-xs font-weight-bold">16/06/18</span>
+                                    </td>
+
+                                    <td class="text-center">
+                                        <a href="#" class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="Edit user">
+                                            <i class="fas fa-user-edit text-secondary"></i>
+                                        </a>
+                                        <span>
+                                            <i class="cursor-pointer fas fa-trash text-secondary"></i>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">
+                                        <p class="text-xs font-weight-bold mb-0">1</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-xs font-weight-bold mb-0">Pepito</p>
+                                    </td>
+                                    <td class="text-center">
+                                        <p class="text-xs font-weight-bold mb-0">Thor</p>
+                                    </td>
+                                    <td class="text-center">
+                                        <p class="text-xs font-weight-bold mb-0">ICKKZK4</p>
+                                    </td>
+                                    <td class="text-center">
+                                        <div>
+                                            <img src="../assets/img/team-2.jpg" class="avatar avatar-sm me-3">
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <span class="text-secondary text-xs font-weight-bold">16/06/18</span>
+                                    </td>
+
+                                    <td class="text-center">
+                                        <a href="#" class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="Edit user">
+                                            <i class="fas fa-user-edit text-secondary"></i>
+                                        </a>
+                                        <span>
+                                            <i class="cursor-pointer fas fa-trash text-secondary"></i>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">
+                                        <p class="text-xs font-weight-bold mb-0">1</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-xs font-weight-bold mb-0">Pepito</p>
+                                    </td>
+                                    <td class="text-center">
+                                        <p class="text-xs font-weight-bold mb-0">Thor</p>
+                                    </td>
+                                    <td class="text-center">
+                                        <p class="text-xs font-weight-bold mb-0">ICKKZK4</p>
+                                    </td>
+                                    <td class="text-center">
+                                        <div>
+                                            <img src="../assets/img/team-2.jpg" class="avatar avatar-sm me-3">
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <span class="text-secondary text-xs font-weight-bold">16/06/18</span>
+                                    </td>
+
+                                    <td class="text-center">
+                                        <a href="#" class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="Edit user">
+                                            <i class="fas fa-user-edit text-secondary"></i>
+                                        </a>
+                                        <span>
+                                            <i class="cursor-pointer fas fa-trash text-secondary"></i>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">
+                                        <p class="text-xs font-weight-bold mb-0">1</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-xs font-weight-bold mb-0">Pepito</p>
+                                    </td>
+                                    <td class="text-center">
+                                        <p class="text-xs font-weight-bold mb-0">Thor</p>
+                                    </td>
+                                    <td class="text-center">
+                                        <p class="text-xs font-weight-bold mb-0">ICKKZK4</p>
+                                    </td>
+                                    <td class="text-center">
+                                        <div>
+                                            <img src="../assets/img/team-2.jpg" class="avatar avatar-sm me-3">
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <span class="text-secondary text-xs font-weight-bold">16/06/18</span>
+                                    </td>
+
+                                    <td class="text-center">
+                                        <a href="#" class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="Edit user">
+                                            <i class="fas fa-user-edit text-secondary"></i>
+                                        </a>
+                                        <span>
+                                            <i class="cursor-pointer fas fa-trash text-secondary"></i>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">
                                         <p class="text-xs font-weight-bold mb-0">1</p>
                                     </td>
                                     <td>
