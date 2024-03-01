@@ -17,6 +17,10 @@ $(document).ready(function () {
                 extend: "pdf",
                 className: "btn bg-secondary text-white",
                 text: '<i class="fa fa-file-pdf"></i> Exportar PDF',
+                action: function (e, dt, button, config) {
+                    // Generar PDF al hacer clic en el botón "Exportar PDF"
+                    generarPDF();
+                },
             },
         ],
         language: {
@@ -217,7 +221,7 @@ function eliminarRegistro(codigo) {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
         dataType: 'json',
-        success: function(response) {
+        success: function (response) {
             console.log(response);
             if (response.success) {
                 // Mostrar mensaje de éxito con SweetAlert
@@ -236,7 +240,7 @@ function eliminarRegistro(codigo) {
             }
             $("#table_plate").DataTable().ajax.reload();
         },
-        error: function(xhr, status, error) {
+        error: function (xhr, status, error) {
             // Si hubo un error de AJAX, mostrar un mensaje de error
             Swal.fire('Error', 'Hubo un error al procesar la solicitud.', 'error');
         }
@@ -246,4 +250,22 @@ function eliminarRegistro(codigo) {
 function abrirModal(idModal) {
     $('#' + idModal).modal('show').find('form')[0].reset();
 }
+
+function generarPDF() {
+    // Hacer una solicitud AJAX para generar el PDF
+    $.ajax({
+        url: "/generar-pdf",
+        method: "GET",
+        success: function (response) {
+            // Abrir el PDF en una nueva pestaña
+            window.open(response.pdf_url, '_blank');
+        },
+        error: function (error) {
+            // En caso de error, mostrar un mensaje de error
+            console.error("Error al generar PDF:", error);
+            alert("Hubo un error al generar el PDF");
+        },
+    });
+}
+
 

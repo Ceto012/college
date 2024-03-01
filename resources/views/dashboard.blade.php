@@ -36,16 +36,16 @@
                                         <div class="table-responsive">
                                             <table class="custom-table">
                                                 <tbody>
-                                                    <tr>
+                                                    {{-- <tr>
                                                         <td style="font-size: 3rem;">Código:</td>
                                                         <td style="font-size: 3rem;" id="codigoAlumno" class="fw-bold"></td>
-                                                    </tr>
-                                                    <tr>
+                                                    </tr> --}}
+                                                    {{-- <tr>
                                                         <td style="font-size: 3rem;">Alumno:</td>
                                                         <td style="font-size: 3rem;" id="nombreAlumno" class="fw-bold"></td>
-                                                    </tr>
+                                                    </tr> --}}
                                                     <tr>
-                                                        <td style="font-size: 3rem;">Apoderado:</td>
+                                                        <td style="font-size: 3rem;">Representante:</td>
                                                         <td style="font-size: 3rem;" id="apoderado" class="fw-bold"></td>
                                                     </tr>
                                                     <tr>
@@ -61,12 +61,10 @@
                                     <div class="contenedor-grid" style="height: 80%;">
                                         <div class="contenedor-toast" id="contenedor-toast"
                                             style="display: flex; flex-direction: column; gap: 20px; align-items: center; justify-content: center; height: 100%">
-                                            <div class="toasted exito" style="display: none;">
-                                                <div class="contenido">
+                                            <div class="toasted exito" style="display: none; text-align: center;">
+                                                <div class="contenido" style="margin: auto">
                                                     <div class="icono"></div>
-                                                    <div>
-                                                        <div class="titulo" style="font-size: 2rem;">PLACA REGISTRADA</div>
-                                                    </div>
+                                                    <div class="titulo" style="font-size: 2rem;">PLACA REGISTRADA</div>
                                                 </div>
                                             </div>
                                             <div class="toasted error" style="display: none;">

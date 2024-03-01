@@ -350,7 +350,7 @@ div.dt-buttons span.dt-button-spacer.bar:empty {
 div.dt-buttons .btn.processing {
   color: rgba(0, 0, 0, 0.2);
 }
-div.dt-buttons .btn.processing:after {
+div.dt-buttons .btn.processingg:after {
   position: absolute;
   top: 50%;
   left: 50%;

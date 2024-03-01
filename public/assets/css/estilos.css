@@ -1,12 +1,8 @@
 :root {
 	--exito: #3ab65c;
 	--error: #ff0000;
-	--info: #fcdb1f;
-	--warning: #fc7b03;
 	--exito-hover: #2d8a46;
 	--error-hover: #962a31;
-	--info-hover: #147fa0;
-	--warning-hover: #9b7512;
 }
 
 
@@ -44,12 +40,7 @@
 .btn.error {
 	background: var(--error);
 }
-.btn.info {
-	background: var(--info);
-}
-.btn.warning {
-	background: var(--warning);
-}
+
 
 /* Hover */
 .btn.exito:hover {
@@ -58,12 +49,7 @@
 .btn.error:hover {
 	background: var(--error-hover);
 }
-.btn.info:hover {
-	background: var(--info-hover);
-}
-.btn.warning:hover {
-	background: var(--warning-hover);
-}
+
 
 .contenedor-toast {
 	margin: 20px;
@@ -95,22 +81,12 @@
 	animation: colorChangeLong 2s infinite alternate; 
     transition: background-color 0.3s, color 0.3s, border-color 0.3s; 
 }
-.toasted.info {
-	background: var(--info);
-	animation: colorChangeShort  2s infinite alternate; 
-    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
-}
-.toasted.warning {
-	background: var(--warning);
-	animation: colorChangeDouble 2s infinite alternate; 
-    transition: background-color 0.3s, color 0.3s, border-color 0.3s; 
-}
 
 .toasted .contenido {
-	display: grid;
+	/* display: grid;
 	grid-template-columns: 30px auto;
 	align-items: center;
-	gap: 15px;
+	gap: 15px; */
 	padding: 42px;
 }
 
@@ -122,6 +98,7 @@
 	font-size: 20px;
 	font-weight: 600;
 	margin-bottom: 5px;
+	margin: auto;
 }
 
 .toasted .texto {
@@ -241,20 +218,6 @@
     }
 }
 
-@keyframes colorChangeDouble {
-    0% {
-        background-color: #f5d1b0;
-        color: #020202;
-        border-color: #fc7b03;
-    }
-
-    100% {
-        background-color: #fc7b03; /* Cambia a rojo sólido */
-        color: #020202; /* Cambia a texto blanco */
-        border-color: #fc7b03; /* Mantiene el borde rojo */
-    }
-}
-
 /* Estilos para la tabla personalizada */
 .custom-table {
     width: 100%;
@@ -299,3 +262,6 @@
     transform: scale(1.05); /* Aumenta ligeramente el tamaño al pasar el mouse */
 }
 
+.buttons-pdf .dt-button-spinner {
+    display: none !important;
+}

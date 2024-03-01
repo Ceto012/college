@@ -3,6 +3,7 @@
 use App\Http\Controllers\ChangePasswordController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InfoUserController;
+use App\Http\Controllers\PdfController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ResetController;
 use App\Http\Controllers\SessionsController;
@@ -71,4 +72,10 @@ Route::post('/importar-csv-placa', [PlacaController::class, 'importarCSV']);
 Route::get('/listar-placas', [PlacaController::class, 'obtenerDatos']);
 Route::get('/buscar-cod-estudiante/{codigo}', [PlacaController::class, 'buscarRegistro']);
 Route::delete('/eliminar-registro/{codigo}', [PlacaController::class, 'eliminarRegistro']);
+
+
+//Generando PDF
+
+Route::get('/generar-pdf', [PdfController::class, 'generarPdf']);
+
 
