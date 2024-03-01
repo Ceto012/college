@@ -75,9 +75,13 @@ Route::post('/registrar-placa', [PlacaController::class, 'registrarPlaca']);
 Route::get('/buscar-cod-estudiante/{codigo}', [PlacaController::class, 'buscarRegistro']);
 Route::delete('/eliminar-registro/{codigo}', [PlacaController::class, 'eliminarRegistro']);
 
+Route::post('/busqueda-reporte', [RegistroController::class, 'generarReporte']);
+
 
 //Generando PDF
 
 Route::get('/generar-pdf', [PdfController::class, 'generarPdf']);
+
+
 
 
