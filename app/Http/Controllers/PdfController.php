@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Barryvdh\DomPDF\Facade\Pdf as PDF;
-use App\Models\Placa; // Asegúrate de importar el modelo de Placa
+use App\Models\Plate; // Asegúrate de importar el modelo de Placa
 use Illuminate\Http\Request;
 
 
@@ -13,7 +13,7 @@ class PdfController extends Controller
     
     public function generarPdf()
     {
-        $placas = Placa::all(); // Suponiendo que tengas un modelo llamado Placa
+        $placas = Plate::all(); // Suponiendo que tengas un modelo llamado Placa
     
         $pdf = PDF::loadView('pdf.pdf', compact('placas'));
         $pdf->save(storage_path('app/public/placas.pdf'));

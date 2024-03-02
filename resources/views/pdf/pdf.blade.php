@@ -44,10 +44,10 @@
         <tbody>
             @foreach ($placas as $placa)
             <tr>
-                <td>{{ $placa->cod_estudiante }}</td>
-                <td>{{ $placa->nombre }}</td> 
-                <td>{{ $placa->apoderado }}</td>
-                <td>{{ $placa->placa }}</td>
+                <td>{{ $placa->cod_student }}</td>
+                <td>{{ $placa->name }}</td> 
+                <td>{{ $placa->proxy }}</td>
+                <td>{{ $placa->plate }}</td>
                 <!-- Agregar más columnas si es necesario -->
             </tr>
             @endforeach
