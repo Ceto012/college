@@ -64,7 +64,7 @@ function enviarFormulario(event) {
         contentType: false,
         dataType: "JSON",
         success: function (response) {
-            //console.log(response);
+            console.log(response);
             if (response.success) {
                 // Mostrar mensaje de éxito con SweetAlert
                 /*Swal.fire({
@@ -81,8 +81,8 @@ function enviarFormulario(event) {
                     $("#table_reporte")
                         .DataTable()
                         .row.add([
-                            resultado.id,
-                            resultado.placa,
+                            resultado.proxy,
+                            resultado.plate,
                             resultado.fecha,
                             //resultado.created_at,
                             //resultado.updated_at,
@@ -131,3 +131,5 @@ function formatDate(dateString) {
         anio
     );
 }
+
+

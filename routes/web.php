@@ -8,7 +8,8 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ResetController;
 use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\RequestController;
-use App\Http\Controllers\PlacaController;
+//use App\Http\Controllers\PlacaController;
+use App\Http\Controllers\PlateController;
 use App\Http\Controllers\RegistroController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
@@ -37,7 +38,7 @@ Route::group(['middleware' => 'auth'], function () {
 		return view('placas/index');
 	})->name('placa');*/
 
-	Route::get('/placa', [PlacaController::class, 'index'])->name('placa.index');
+	Route::get('/placa', [PlateController::class, 'index'])->name('placa.index');
 
 	Route::get('reporte', function () {
 		return view('reporte');
@@ -69,13 +70,15 @@ Route::get('/login', function () {
 })->name('login');
 
 //Consultas AJAX
-Route::post('/importar-csv-placa', [PlacaController::class, 'importarCSV']);
-Route::get('/listar-placas', [PlacaController::class, 'obtenerDatos']);
-Route::post('/registrar-placa', [PlacaController::class, 'registrarPlaca']);
-Route::get('/buscar-cod-estudiante/{codigo}', [PlacaController::class, 'buscarRegistro']);
-Route::delete('/eliminar-registro/{codigo}', [PlacaController::class, 'eliminarRegistro']);
+Route::post('/importar-csv-placa', [PlateController::class, 'importarCSV']);
+Route::get('/listar-placas', [PlateController::class, 'obtenerDatos']);
+Route::post('/registrar-placa', [PlateController::class, 'registrarPlaca']);
+Route::get('/buscar-cod-estudiante/{codigo}', [PlateController::class, 'buscarRegistro']);
+Route::delete('/eliminar-registro/{codigo}', [PlateController::class, 'eliminarRegistro']);
 
-Route::post('/busqueda-reporte', [RegistroController::class, 'generarReporte']);
+Route::post('/busqueda-reporte', [RegistroController::class, 'generarReporte'] );
+
+//Route::get('/events', [RegistroController::class, 'listen']);
 
 
 //Generando PDF

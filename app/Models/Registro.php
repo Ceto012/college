@@ -11,5 +11,5 @@ class Registro extends Model
 
     protected $table = 'registro'; // Nombre de la tabla
 
-    protected $fillable = ['id', 'placa'];
+    protected $fillable = ['id', 'plate'];
 }

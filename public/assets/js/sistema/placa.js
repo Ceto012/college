@@ -51,11 +51,11 @@ $(document).ready(function () {
             dataSrc: "",
         },
         columns: [
-            { data: "cod_estudiante" },
-            { data: "nombre" },
-            { data: "apoderado" },
-            { data: "placa" },
-            { data: "imagen" },
+            { data: "cod_student" },
+            { data: "name" },
+            { data: "proxy" },
+            { data: "plate" },
+            { data: "image" },
             {
                 data: "created_at",
                 render: function (data) {
@@ -72,10 +72,10 @@ $(document).ready(function () {
                     return (
                         '<div class="acciones">' +
                         '<a href="#" class="editar" onclick="editarRegistro(\'' +
-                        row.cod_estudiante +
+                        row.cod_student +
                         '\')" data-bs-toggle="tooltip" data-bs-original-title="Editar usuario"><i class="fas fa-user-edit text-secondary mx-3"></i></a>' +
                         '<a href="#" class="eliminar" onclick="confirmarEliminacion(\'' +
-                        row.cod_estudiante +
+                        row.cod_student +
                         '\')" data-bs-toggle="tooltip" data-bs-original-title="Eliminar usuario"><i class="fas fa-trash text-secondary"></i></a>' +
                         "</div>"
                     );
@@ -213,10 +213,10 @@ function editarRegistro(codigo) {
         success: function (response) {
             console.log(response);
             // Actualizar el contenido del modal con los datos recibidos
-            //$("#codigoAlumno").val(response.registro.cod_estudiante);
-            //$("#nombreAlumno").val(response.registro.nombre);
-            $("#apoderado").val(response.registro.apoderado);
-            $("#placa").val(response.registro.placa);
+            $("#codigoAlumno").val(response.registro.cod_student);
+            $("#nombreAlumno").val(response.registro.name);
+            $("#apoderado").val(response.registro.proxy);
+            $("#placa").val(response.registro.plate);
             //$("#imagen").attr("src", response.registro.imagen);
 
             // Mostrar el modal
@@ -294,6 +294,7 @@ function generarPDF() {
         url: "/generar-pdf",
         method: "GET",
         success: function (response) {
+            //console.log(response);
             // Abrir el PDF en una nueva pestaña
             window.open(response.pdf_url, '_blank');
         },

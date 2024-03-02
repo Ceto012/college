@@ -75,10 +75,10 @@
                                             <p class="text-xs font-weight-bold mb-0">1</p>
                                         </td>
                                         <td>
-                                            <p class="text-xs font-weight-bold mb-0">Pepito</p>
+                                            <p class="text-xs font-weight-bold mb-0">Parlante</p>
                                         </td>
                                         <td class="text-center">
-                                            <p class="text-xs font-weight-bold mb-0">Thor</p>
+                                            <p class="text-xs font-weight-bold mb-0">1010020</p>
                                         </td>
                                         <td class="text-center">
                                             <a href="#" class="mx-3" data-bs-toggle="tooltip"

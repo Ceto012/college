@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('registro', function (Blueprint $table) {
             $table->id();
-            $table->string('placa');
+            $table->string('plate');
+            $table->datetime('fecha');
             $table->timestamps();
         });
     }
