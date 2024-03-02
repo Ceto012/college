@@ -40,7 +40,7 @@
                                             </div>
                                             <div class="mb-3">
                                                 <label for="placa" class="form-label">Placa</label>
-                                                <input type="text" class="form-control upper" id="placa" name="placa" required placeholder="Ingrese la placa del vehículo sin guión">
+                                                <input type="text" class="form-control upper" id="placa" maxlength="6" name="placa" required placeholder="Ingrese la placa del vehículo sin guión">
                                             </div>
                                             <div class="mb-3">
                                                 <label for="imagen" class="form-label">Imagen</label>
