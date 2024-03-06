@@ -84,9 +84,11 @@
   <script src="../assets/js/college.js"></script>
 
 
+  <!-- DATATABLES -->
   <script src="../assets/js/sistema/dashboard.js"></script>
   <script src="../assets/js/sistema/placa.js"></script>
   <script src="../assets/js/sistema/reporte.js"></script>
+  <script src="../assets/js/sistema/anexo.js"></script>
 
   <!--     DataTable JS     -->
   <script src="../assets/plugin/datatable/datatables.min.js"></script>
