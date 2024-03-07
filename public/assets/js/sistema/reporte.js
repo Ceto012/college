@@ -157,3 +157,12 @@ function formatDate(dateString) {
 }
 
 
+var fechaInicioInput = document.getElementById('fecha-inicio');
+var fechaFinInput = document.getElementById('fecha-fin');
+
+// Agregar un event listener para el evento "change" en el input de fecha inicio
+fechaInicioInput.addEventListener('change', function() {
+    // Establecer el atributo min del campo de fecha fin al valor seleccionado del campo de fecha inicio
+    fechaFinInput.min = fechaInicioInput.value;
+});
+

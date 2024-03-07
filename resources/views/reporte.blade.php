@@ -28,7 +28,7 @@
                                     <div class="form-group">
                                         <label for="user-name" class="form-control-label">Fecha Inicio</label>
                                         <div class="@error('user.name')border border-danger rounded-3 @enderror">
-                                            <input class="form-control" value="" type="date" id="user-name" name="f-inicio" required>
+                                            <input class="form-control" value="" type="date" id="fecha-inicio" name="f-inicio" required>
                                             @error('name')
                                             <p class="text-danger text-xs mt-2">{{ $message }}</p>
                                             @enderror
@@ -39,7 +39,8 @@
                                     <div class="form-group">
                                         <label for="user-email" class="form-control-label">Fecha Fin</label>
                                         <div class="@error('email')border border-danger rounded-3 @enderror">
-                                            <input class="form-control" type="date" id="user-email" name="f-final" required>
+                                            <!-- Agrega el atributo min con el valor de la fecha de inicio utilizando JavaScript -->
+                                            <input class="form-control" type="date" id="fecha-fin" name="f-final" required>
                                             @error('email')
                                             <p class="text-danger text-xs mt-2">{{ $message }}</p>
                                             @enderror
@@ -50,7 +51,7 @@
                                     <div class="form-group">
                                         <label for="user-email" class="form-control-label">Placa</label>
                                         <div class="@error('email')border border-danger rounded-3 @enderror">
-                                            <input class="form-control" maxlength="6" type="text" id="user-email" name="placa">
+                                            <input class="form-control upper" maxlength="6" type="text" id="user-email" name="placa">
                                             @error('email')
                                             <p class="text-danger text-xs mt-2">{{ $message }}</p>
                                             @enderror
