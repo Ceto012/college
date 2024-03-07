@@ -15,6 +15,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Route;
 
+use Illuminate\Support\Facades\Event;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -75,16 +77,16 @@ Route::get('/listar-placas', [PlateController::class, 'obtenerDatos']);
 Route::post('/registrar-placa', [PlateController::class, 'registrarPlaca']);
 Route::get('/buscar-cod-estudiante/{codigo}', [PlateController::class, 'buscarRegistro']);
 Route::delete('/eliminar-registro/{codigo}', [PlateController::class, 'eliminarRegistro']);
-
 Route::post('/busqueda-reporte', [RegistroController::class, 'generarReporte'] );
 
-//Route::get('/events', [RegistroController::class, 'listen']);
+//Buscar Placa EN BD
+Route::get('/buscar-placa/{placa}', [PlateController::class, 'buscarPorPlaca']);
+
+
 
 
 //Generando PDF
-
 Route::get('/generar-pdf', [PdfController::class, 'generarPdf']);
-
 Route::post('/generar-pdf-reporte', [PdfController::class, 'generarPdfReporte']);
 
 
@@ -106,7 +108,5 @@ Route::post('/mensaje', [RequestController::class, 'recibirMensaje']);
 Route::get('vista', function () {
 	return view('vista');
 })->name('vista');
-
-
 
 

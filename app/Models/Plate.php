@@ -57,7 +57,8 @@ class Plate extends Model
             if ($request->hasFile('imagen') && $request->file('imagen')->isValid()) {
                 $imagen = $request->file('imagen');
                 $nombreImagen = $imagen->getClientOriginalName();
-                $imagen->storeAs('imagenes', $nombreImagen);
+                //$imagen->storeAs('public/imagenes', $nombreImagen);
+                $imagen->move(public_path('assets/imagenes'), $nombreImagen);
             }
 
             // Actualizar los campos de la placa
@@ -78,7 +79,8 @@ class Plate extends Model
             if ($request->hasFile('imagen') && $request->file('imagen')->isValid()) {
                 $imagen = $request->file('imagen');
                 $nombreImagen = $imagen->getClientOriginalName();
-                $imagen->storeAs('imagenes', $nombreImagen);
+                //$imagen->storeAs('public/imagenes', $nombreImagen);
+                $imagen->move(public_path('assets/imagenes'), $nombreImagen);
             }
 
             // Crear una nueva placa

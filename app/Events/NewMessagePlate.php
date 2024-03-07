@@ -14,14 +14,14 @@ class NewMessagePlate implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    public $message;
+    public $data;
 
     /**
      * Create a new event instance.
      */
-    public function __construct($message)
+    public function __construct($data)
     {
-        $this->message = $message; 
+        $this->data = $data;
     }
 
     /**
@@ -29,10 +29,15 @@ class NewMessagePlate implements ShouldBroadcast
      *
      * @return array<int, \Illuminate\Broadcasting\Channel>
      */
-    public function broadcastOn(): array
+    public function broadcastOn(): Channel
+    {
+        return new Channel('placadash');
+    }
+
+    public function broadcastWith()
     {
         return [
-            new PrivateChannel('placadash'),
+            'data' => $this->data
         ];
     }
 }

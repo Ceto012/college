@@ -94,11 +94,6 @@
             </div>
         </div>
     </div>
-    <script src="{{ asset('js/app.js') }}"></script>
-    <script>
-        console.log("Holaaa");
-        Echo.channel('placadash').listen('NewMessagePlate', (e) => {
-            console.log(e.message)
-        })
-    </script>
+    <script src="{{ mix('js/app.js') }}"></script>
+
 @endsection

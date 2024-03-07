@@ -1,4 +1,4 @@
-$(document).ready(function () {
+/*$(document).ready(function () {
     // Asignar función al evento submit del formulario
     $("#formSubirAnexoCSV").submit(enviarFormularioCSVAnexo);
     $("#formAnexo").submit(enviarFormularioAnexo);
@@ -309,3 +309,5 @@ function generarPDFAnexo() {
 $('.upper').on('input', function() {
     $(this).val($(this).val().toUpperCase());
   });
+
+  */

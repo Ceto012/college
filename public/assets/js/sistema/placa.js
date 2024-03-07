@@ -152,7 +152,7 @@ function enviarFormularioPlaca(event) {
         contentType: false,
         dataType: "JSON",
         success: function (response) {
-            console.log(response);
+            //console.log(response);
             if (response.success) {
                 // Mostrar mensaje de éxito con SweetAlert
                 Swal.fire({
@@ -204,14 +204,14 @@ function formatDate(dateString) {
 // Función para editar un registro
 function editarRegistro(codigo) {
     // Aquí puedes agregar la lógica para editar el registro con el ID especificado
-    console.log("Editar registro con ID: " + codigo);
+    //console.log("Editar registro con ID: " + codigo);
 
     $.ajax({
         url: "/buscar-cod-estudiante/" + codigo,
         method: "GET",
         dataType: "JSON",
         success: function (response) {
-            console.log(response);
+            //console.log(response);
             // Actualizar el contenido del modal con los datos recibidos
             $("#codigoAlumno").val(response.registro.cod_student);
             $("#nombreAlumno").val(response.registro.name);

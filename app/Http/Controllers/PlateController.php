@@ -29,8 +29,18 @@ class PlateController extends Controller
 
     public function buscarRegistro($codigo)
     {
-        //$registro = Placa::buscarPorCodigo($codigo);
         $registro = Plate::buscarPorCodigo($codigo);
+
+        if ($registro) {
+            return response()->json(['success' => true, 'message' => 'Registro encontrado', 'registro' => $registro]);
+        } else {
+            return response()->json(['success' => false, 'message' => 'Registro no encontrado'], 404);
+        }
+    }
+
+    public function buscarPorPlaca($placa)
+    {
+        $registro = Plate::where('plate', $placa)->first();
 
         if ($registro) {
             return response()->json(['success' => true, 'message' => 'Registro encontrado', 'registro' => $registro]);
