@@ -89,5 +89,24 @@ Route::post('/generar-pdf-reporte', [PdfController::class, 'generarPdfReporte'])
 
 
 
+////////////////////////////////////////////
+
+//RECEPCIÓN DE DATOS DE CAMNUBE
+Route::post('request', [RequestController::class, 'getPlate']);
+
+////////////////////////////////////////////
+
+Route::get('placadash', [RequestController::class, 'vistainicial'])->name('placa');
+Route::get('placa', [PlateController::class, 'index']);
+
+
+Route::post('/mensaje', [RequestController::class, 'recibirMensaje']);
+
+
+Route::get('vista', function () {
+	return view('vista');
+})->name('vista');
+
+
 
 

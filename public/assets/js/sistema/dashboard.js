@@ -10,7 +10,7 @@ $(document).ready(function () {
     }
 });
 
-$(document).ready(function () {
+/*$(document).ready(function () {
     $.ajax({
         url: 'https://jsonplaceholder.typicode.com/users/1',
         type: 'GET',
@@ -26,5 +26,5 @@ $(document).ready(function () {
             console.error('Error al obtener los datos:', error);
         }
     });
-});
+});*/
 

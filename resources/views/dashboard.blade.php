@@ -1,6 +1,9 @@
 @extends('layouts.user_type.auth')
 
 @section('content')
+<head>
+    <meta name="csrf-token" content="{{csrf_token()}}">
+</head>
     <div class="container-fluid content-inner mt-n4 py-3">
         <div class="row">
             <div class="col-md-12 col-lg-12">
@@ -91,4 +94,11 @@
             </div>
         </div>
     </div>
+    <script src="{{ asset('js/app.js') }}"></script>
+    <script>
+        console.log("Holaaa");
+        Echo.channel('placadash').listen('NewMessagePlate', (e) => {
+            console.log(e.message)
+        })
+    </script>
 @endsection
