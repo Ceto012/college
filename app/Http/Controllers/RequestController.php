@@ -75,7 +75,7 @@ class RequestController extends Controller
     }
     private function registrarPlaca($plateNumber)
     {
-        $fechaActual = Carbon::now();
+        $fechaActual = Carbon::now('America/Lima');
         Registro::create(['plate' => $plateNumber, 'fecha' => $fechaActual]);
 
         //Manda el Evento para el ECHO - WebSocket
