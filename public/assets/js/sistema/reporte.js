@@ -95,7 +95,7 @@ function enviarFormulario(event) {
                 // Limpia la tabla antes de agregar nuevos datos
                 $("#table_reporte").DataTable().clear().draw();
             }
-            $("#form-reporte")[0].reset();
+            //$("#form-reporte")[0].reset();
         },
         error: function (error) {
             response = JSON.parse(error.responseText);
