@@ -3,17 +3,18 @@ Echo.channel('placadash').listen('NewMessagePlate', (e) => {
     VisualizarDatos(e.data);
 })
 
-var valor = 1;
+//var valor = 2;
 
 $(document).ready(function () {
     // Código que se ejecutará cuando el DOM esté listo
 
-    if (valor == 1) {
-        $('.exito').show();
-    } else {
-        $('.error').show();
-    }
-
+    // if (valor == 1) {
+    //     $('.exito').show();
+    // } else {
+    //     $('.error').show();
+    // }
+    $('.error').hide();
+    $('.exito').hide();
     
 });
 
@@ -53,8 +54,12 @@ function buscarPlaca(placa){
             $('#apoderado').text(data.registro.proxy); // Cambia data.username por el campo correspondiente en tu respuesta JSON
             $('#placa').text(data.registro.plate); // Cambia data.email por el campo correspondiente en tu respuesta JSON
 
-            var imagenSrc = data.registro.image ? '/assets/imagenes/' + data.registro.image : '/assets/img/contenido-no-disponible.jpg';
+            var imagenSrc = data.registro.image ? '/assets/imagenes/' + data.registro.image : '/assets/img/none-foto.png';
             $('#fullscreen-img').attr('src', imagenSrc);
+            $('#fullscreen-img').addClass('img-fixed-size'); // Agrega la clase img-fixed-size
+
+
+
            
         },
         error: function (xhr, status, error) {
@@ -67,6 +72,9 @@ function denegarIngreso(){
     let mensaje = 'SIN RESULTADOS';
     $('#apoderado').text(mensaje); 
     $('#placa').text(mensaje); 
-    $('#fullscreen-img').attr('src', '/assets/img/contenido-no-disponible.jpg');
-           
+    $('#fullscreen-img').attr('src', '/assets/img/none-foto.png');
+    $('#fullscreen-img').addClass('img-fixed-size'); // Agrega la clase img-fixed-size
+        
 }
+
+

@@ -20,8 +20,11 @@ class RegistroController extends Controller
             switch ($tipoBusqueda) {
                 case 'placa':
                     // Realizar la búsqueda por placa
-                    $resultados = Registro::where('plate', $placa)
-                        ->whereBetween('fecha', [$fInicio, $fFinal])
+                   //$resultados = Registro::where('plate', $placa)
+                     //   ->whereBetween('fecha', [$fInicio, $fFinal])
+                       // ->get();
+                    $resultados = Registro::where('fecha', '>=', $fInicio)
+                        ->where('fecha', '<=', $fFinal)
                         ->get();
 
                     // Obtener el apoderado correspondiente a la placa

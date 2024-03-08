@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('plate', function (Blueprint $table) {
             $table->id();
-            $table->string('cod_student');
+            $table->string('cod_student')->unique();
             $table->string('name');
             $table->string('proxy');
             $table->string('plate');

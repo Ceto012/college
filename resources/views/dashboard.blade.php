@@ -33,7 +33,7 @@
                                 style="display: grid; grid-template-columns: 1fr 1fr; grid-gap: 20px;">
                                 <div class="m-auto">
                                     <div class="card-header">
-                                        <h3 class="mb-0" style="font-size: 3rem">DATOS DEL ALUMNO</h3>
+                                        <h3 class="mb-0" style="font-size: 3rem">DATOS DEL VEHICULO</h3>
                                     </div>
                                     <div class="card-body">
                                         <div class="table-responsive">
@@ -49,11 +49,11 @@
                                                     </tr> --}}
                                                     <tr>
                                                         <td style="font-size: 3rem;">Representante:</td>
-                                                        <td style="font-size: 3rem;" id="apoderado" class="fw-bold"></td>
+                                                        <td style="font-size: 3rem;" id="apoderado" class="fw-bold">Sin resultados</td>
                                                     </tr>
                                                     <tr>
                                                         <td style="font-size: 3rem;">Placa:</td>
-                                                        <td style="font-size: 3rem;" id="placa" class="fw-bold"></td>
+                                                        <td style="font-size: 3rem;" id="placa" class="fw-bold">Sin resultados</td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -71,21 +71,18 @@
                                                 </div>
                                             </div>
                                             <div class="toasted error" style="display: none;">
-                                                <div class="contenido">
+                                                <div class="contenido" style="margin: auto">
                                                     <div class="icono"></div>
-                                                    <div>
-                                                        <div class="titulo" style="font-size: 2rem;">PLACA NO REGISTRADA
-                                                        </div>
-                                                    </div>
+                                                    <div class="titulo" style="font-size: 2rem;">PLACA NO REGISTRADA</div>
                                                 </div>
                                             </div>
                                             <!-- Agrega más elementos de toast aquí si es necesario -->
                                         </div>
                                     </div>
                                     <div style="flex: 1; display: flex; justify-content: center;">
-                                        <img loading="lazy" id="fullscreen-img" src="{{ asset('assets/img/auto.jpeg') }}"
-                                            alt="Descripción de la imagen" class="img-fluid shadow border-radius-xl">
-                                    </div>
+                                        <img loading="lazy" id="fullscreen-img" src="{{ asset('assets/img/none-foto.png') }}"
+                                            alt="Descripción de la imagen" class="img-fixed-size fullscreen-img shadow border-radius-xl">
+                                    </div>                                                            
                                 </div>
                             </div>
                         </div>
